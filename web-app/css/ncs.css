@@ -1,0 +1,133 @@
+
+body { color:#444444; font-family: Arial, Helvetica, sans-serif; line-height:18px;font-size:.95em;}
+
+
+/* NCS	styles */
+
+/* Copy from template.css ncshs project */
+
+
+
+/* End of copy from template.css ncshs project */
+
+/* Copied from text.css ncshs project*/
+
+	body { color:#444444; font-family: Arial, Helvetica, sans-serif; line-height:18px;font-size:.95em;}
+
+	/* CENTER CONTAINER -- Centers the page in the browser */
+	body.center {margin-left:auto;margin-right:auto;width:960px;}
+
+	/* LINKS */
+	a {color:#7a0019;}
+
+	a:link {color:#7a0019;}
+
+	a:visited {color:#7a0019;}
+
+	a:hover {color:#666699;}
+
+	a:active {color:#7a0019;}
+
+	/* HEADINGS *//* Basic Headline Set -- Adjust font sizes based on YUI chart above to maintain consistency. */
+	/*h1, h5, h6 {font-weight:bold;}*/
+	h1 {font-size:161%;line-height: 26px;color:#7a0019;margin-bottom: 10px;}
+	h2 {font-size:138.5%;color:#7a0019;margin-bottom: 10px;line-height: 22px;margin-top: 12px;}
+	h3 {font-size:108%;color:#7a0019; margin-bottom: 10px;line-height: 22px;margin-top: 12px;font-style: italic;}
+	h4 {font-size:100%;color:#900021;text-transform:uppercase;}
+	h5 {font-size:93%;}
+	h6 {font-size:77%;}
+
+	/* TEXT *//* Basic Text Set */
+	p, ol, ul {font-size:97%;margin:0 0 .5em 0;}
+
+	/* DEFAULT LIST STYLES *//* add class="default_list" to ol, ul */
+	ol.default_list, ul.default_list {margin-left:3em;}
+	ol.default_list li {list-style: decimal outside;}
+	ul.default_list li {list-style: disc outside;}
+
+/* End copy from text.css ncshs project*/
+
+/* Copied from styles.css ncshs project */
+
+	#bg2100 {
+		background-color: #FFFFFF;
+		background-image: url(../images/ncs/bg_2.10.0.gif);
+		background-repeat: repeat-y;
+		float: left;
+	}
+	#content-header-container {
+		margin-bottom:1px;
+		padding:6px 0;
+		}
+	#content-header {
+		float:left;
+		padding:0 10px;
+		}
+	#content-header-side {
+		float:right;
+		padding:0 10px;
+		}
+	.container {
+		margin:2%;
+		padding:10px 20px 15px 20px;
+		border:1px solid #999999;
+		background-color:#FFFFFF;
+		width:725px;
+		font-size:1em;
+	}
+	.container h4 {
+		margin: 0.5em 0;
+		font-size: 1.1em;
+		font-weight: bold;
+		color:#444444;
+	}
+	.ncs-logo-container {
+		margin:5px;
+		padding:6px;
+	}	
+	div.readmore
+	{
+		text-align:right;
+		font-size:0.9em;
+	}
+	div.readmore a{color:#FF284E;}
+
+/* End of copy styles.css ncshs project */
+
+div.round {
+	border-style: solid;
+	border-width: thin;
+	padding: 1em;
+	margin-bottom: 2em;
+	-moz-border-radius: 1.0em;
+    -webkit-border-radius: 1.0em;
+	border-radius: 1.0em;
+}
+
+#userRolesList, #mailingListInstance {
+	float:right;
+	width: 30em;
+	background-color: #cde;
+}
+
+#userInstanceList, #mailingListInstanceList {
+	font-size: 0.9em;
+	float:left;
+	width: 30em;
+	background-color: #ddd;
+}
+
+
+ul.list{
+    margin:10px 0px 15px 15px;
+	padding:0px;
+}
+ul.list li{
+	list-style:none;
+	padding:2px 0px 2px 12px;
+	margin:0px;
+	background: url(../images/ncs/li_square.gif) no-repeat;
+	background-position:0 .6em;
+    vertical-align:middle;
+}
+
