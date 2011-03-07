@@ -11,12 +11,38 @@
 	<link rel="stylesheet" type="text/css" href="${createLink(controller:'css',action:'template')}" />
 	<link rel="stylesheet" type="text/css" href="${resource(dir:'css',plugin:'ncs-web-template',file:'umn_print.css')}" media="print" />
 	<link rel="stylesheet" type="text/css" href="${createLink(controller:'navBar',action:'css')}" />
+	<link rel="stylesheet" type="text/css" href="${resource(dir:'css',file:'ncs-web.css')}" />
 	<link rel="stylesheet" type="text/css" href="${createLink(controller:'css',action:'print')}" media="print" />
 	<link rel="shortcut icon" href="${resource(dir:'images',plugin:'ncs-web-template',file:'favicon.ico')}" type="image/x-icon" />
 <g:javascript plugin="ncs-web-template" src="umn_searchfield.js" />
 
 <style type="text/css">
 #main_wrapper{width:95%; max-width:1280px; min-width:720px}
+</style>
+
+<style type="text/css" media="screen">
+#nav {
+	margin-top: 5px;
+	margin-left: 5px;
+	width: 181px;
+	float: left;
+}
+
+div.ncsLogoPanel {
+	border: 3px solid white;
+	-moz-border-radius: 0.5em;
+	-webkit-border-radius: 0.5em;
+	width: 159px;
+	min-height: 128px;
+	background-color: #DDD;
+	text-align : center;
+	padding: 4px;
+}
+
+#pageBody {
+	margin-left: 190px;
+	margin-right: 5px;
+}
 </style>
 
 <!-- STYLE SHEETS TO FIX THE EVIL IE -->
@@ -95,13 +121,23 @@
 	</div>
 	<!-- END Unit Graphic Header for home page -->
 
+	<g:include controller="navBar" action="html" />
+	<div id="nav">
+		<div class="ncsLogoPanel shadow">
+			<img src="${resource(dir:'images', file:'ncs_logo_145.png')}"
+				alt="National Children's Study Logo" />
+		</div>
+	</div>
+	<div id="pageBody">
+
 	<g:layoutBody />
+
+	</div>
 
     <!-- BEGIN OPTIONAL UNIT FOOTER -->
     <div class="grid_12" id="unit_footer2">
 	  <ul class="unit_footer_links">
-		<li>Address: 200 Oak <acronym class="acronym_border" title="Street Southeast">St SE</acronym>, Minneapolis, MN 55455-2008 Phone: 612-626-8160 Fax: 612-625-4363</li>
-		<li><a href="mailto:${'info@ncs.umn.edu'}">Contact Health Studies</a></li>
+		<li><a href="mailto:${'info@ncs.umn.edu'}">Contact Us</a></li>
 	  </ul>
     </div>
     <!-- END OPTIONAL UNIT FOOTER -->

@@ -28,4 +28,27 @@ class ManageListsController {
 		
 		[ mailingListInstance: mailingListInstance, mailingListInstanceList: mailingListInstanceList ]
 	}
+
+	def memberList = {
+		def mailingListInstance = mailingListService.getList(params.id)
+		
+		if ( ! mailingListInstance ) {
+			flash.message = "List Not Found! ( id : ${params.id} )"
+			redirect(action:list)
+		}
+		
+		[ mailingListInstance: mailingListInstance ]
+	}
+	
+	def findMember = {
+		def mailingListMemberInstanceList = mailingListService.getMembers()
+		
+		[ mailingListMemberInstanceList: mailingListMemberInstanceList ]
+	}
+	
+	def showMember = {
+		def mailingListMemberInstance = mailingListService.getMember(params.id)
+		
+		[ mailingListMemberInstance: mailingListMemberInstance ]
+	}
 }

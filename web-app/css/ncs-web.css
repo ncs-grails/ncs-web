@@ -1,0 +1,97 @@
+@CHARSET "UTF-8";
+
+h2 {
+	color: #7A0019;
+	font-family: sans-serif;
+	font-weight: bold;
+	font-size: 1.4em;
+	margin: .8em 0 .3em 0;
+}
+
+h3 {
+	color: #7A0019;
+	font-family: sans-serif;
+	font-size: 1.3em;
+	font-style: normal;
+	font-weight: normal;
+	margin: .8em 0 .3em 0;
+}
+
+h4 {
+	color: #7A0019;
+	font-family: sans-serif;
+	font-size: 1.1em;
+	font-style: normal;
+	font-weight: normal;
+	margin: .8em 0 .3em 0;
+	padding-left: 0.5em;
+}
+
+.content-box {
+	border-color: black;
+	border-width: thin;
+	border-style: solid;
+	margin-left: 0.5em;
+	padding-bottom: 0.75em;
+	padding-left: 1.0em;
+	padding-right: 1.0em;
+	background-color: #EEE;
+	margin-bottom: 0.5em;
+}
+
+div.readmore {
+	text-align: right;
+	font-size: 0.9em;
+	padding-right: 1.0em;
+}
+
+#identity {
+	text-align: right;
+	font-size: 0.8em;
+	padding-right: 1.0em;
+}
+
+#footer_inner, #footer_right {
+	font-size: 0.8em;
+}
+
+.shadow {
+	-moz-box-shadow: 3px 3px 4px #333;
+	-webkit-box-shadow: 3px 3px 4px #333;
+	box-shadow: 3px 3px 4px #333;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#303030')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#303030');
+}
+
+
+ul.mailingList {
+	list-style-type: none;
+}
+
+ul.recipientList {
+	padding-top: 0.5em;
+	list-style-type: none;
+}
+
+ul.mailingList li {
+	padding-left: 32px;
+	min-height: 32px;
+	text-
+	list-style-type: none;
+	background-repeat: no-repeat;
+	background-position-x: 0%;
+	background-position-y: 0%;
+	vertical-align: middle;
+}
+ul.recipientList li {
+	padding-left: 32px;
+	min-height: 32px;
+	text-
+	list-style-type: none;
+	background-repeat: no-repeat;
+	background-position-x: 0%;
+	background-position-y: 0%;
+	vertical-align: middle;
+}

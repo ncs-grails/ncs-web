@@ -26,3 +26,10 @@
 #header_sub ul#header_sub_nav li.tl_menu a {
 	font-size: 9pt;
 }
+
+ul.mailingList li {
+	background-image: url( ${resource(dir:'images',file:'maillist_24.png')} );
+}
+ul.recipientList li {
+	background-image: url( ${resource(dir:'images',file:'at_symbol_24.png')} );
+}

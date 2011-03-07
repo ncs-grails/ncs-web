@@ -8,8 +8,6 @@ class InfoController {
 
 	def cab = {}
 
-	def iab = {}
-
 	def faq = {}
 
 	def contact = {}
