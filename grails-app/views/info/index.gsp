@@ -52,8 +52,8 @@
 	<h3>Contact Information</h3>
 	<p>
 		<ul>
-			<li>National Website: http://www.nationalchildrensstudy.gov</li>
-			<li>Email: info@ncs.umn.edu</li>
+			<li>National Website: <a href="http://www.nationalchildrensstudy.gov">http://www.nationalchildrensstudy.gov</a></li>
+			<li>Email: <a href="info@ncs.umn.edu">info@ncs.umn.edu</a></li>
 		</ul>
 	</p>
 	<div class="readmore">
@@ -66,7 +66,7 @@
 	<p>If you need more information about the National 
 	Children's Study at the University of Minnesota not 
 	covered in the FAQ, please send an email to 
-	info@ncs.umn.edu or view the contact page.</p>
+	<a href="info@ncs.umn.edu">info@ncs.umn.edu</a> or view the contact page.</p>
 </div>
 
 </body>

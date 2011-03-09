@@ -39,12 +39,15 @@ h4 {
 	margin-bottom: 0.5em;
 }
 
+.content-box a:link {
+    color:#CC6600;
+    }
 .content-box a:visited {
     color:#CC6600;
     }
 .content-box a:hover {
     color:#FF3300;
-    text-decoration:none;
+    text-decoration:underline;
     }
 .content-box a:active {
     color:#669966;
