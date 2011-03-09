@@ -6,6 +6,7 @@ import org.codehaus.groovy.grails.plugins.springsecurity.Secured
 class ManageListsController {
 
 	def mailingListService
+	def authenticateService
 
     def index = { redirect(action:list, params:params) }
 
@@ -20,7 +21,7 @@ class ManageListsController {
 
 	def show = {
 		def mailingListInstance = mailingListService.getList(params.id)
-		def mailingListInstanceList = null
+		def mailingListAuthorityInstance = MailingListAuthority.findByListName(mailingListInstance.name)
 
 		def breadCrumb = [ [ name:'NCS Email Lists', controller: 'manageLists']
 			, [name:mailingListInstance.name] ]
@@ -29,11 +30,17 @@ class ManageListsController {
     	    flash.message = "List Not Found! ( id : ${params.id} )"
             redirect(action:list)
 		} else {
-			mailingListInstanceList = mailingListService.getLists()
+			if (mailingListAuthorityInstance) {
+				def listAuthority = mailingListInstance.members
+					.find{ it.address == mailingListAuthorityInstance?.address }
+				if (listAuthority) {
+					mailingListAuthorityInstance.display = listAuthority.display
+				}
+			}
 		}
 		
 		[ mailingListInstance: mailingListInstance
-			, mailingListInstanceList: mailingListInstanceList
+			, mailingListAuthorityInstance: mailingListAuthorityInstance
 			, breadCrumb: breadCrumb ]
 	}
 
@@ -110,6 +117,36 @@ class ManageListsController {
 		
 		mailingListService.addMember(listName, address, display)
 		flash.message = "Added ${display} &lt;${address}&gt; to ${listName}"
+		
+		redirect(action:show, id:listName)
+	}
+	
+	@Secured(['ROLE_ASSIGN_LIST_AUTH'])
+	def assignAuthority = {
+		
+		def username = authenticateService.principal()
+		
+		def address = params.address
+		def display = params.display
+		def listName = params.list.name
+		
+		if (listName && address) {
+			def mailingListAuthorityInstance = MailingListAuthority.findByListName(listName)
+			if (! mailingListAuthorityInstance) {
+				mailingListAuthorityInstance = new MailingListAuthority( 
+					listName:listName , address: address)
+			} else {
+				mailingListAuthorityInstance.address = address
+			}
+			mailingListAuthorityInstance.display = display
+			
+			mailingListAuthorityInstance.lastUpdated = new Date()
+			mailingListAuthorityInstance.userUpdated = username
+			
+			mailingListAuthorityInstance.save(flush:true)
+		}
+		
+		flash.message = "Assigned ${address} as list authority for ${listName}"
 		
 		redirect(action:show, id:listName)
 	}

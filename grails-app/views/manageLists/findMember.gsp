@@ -3,7 +3,7 @@
         <title>Mailing List Members</title>
         <meta name="layout" content="ncs" />
         <g:javascript library="jquery" plugin="jquery"/>
-        <g:javascript src="manage_list.js" />
+        <g:javascript src="find_member.js" />
     </head>
     <body>
 		<h1>National Children's Study - Ramsey County Location</h1>

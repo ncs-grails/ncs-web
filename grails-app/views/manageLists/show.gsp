@@ -34,10 +34,29 @@
 				</g:ifAnyGranted>
 				
 				<h2>List Authority</h2>
-				<p>TODO</p>
+				<p>${mailingListAuthorityInstance?.display} : 
+					<a href="mailto:${mailingListAuthorityInstance?.address}">${mailingListAuthorityInstance?.address}</a>
 				<g:ifAnyGranted role="ROLE_ASSIGN_LIST_AUTH">
-					<p>TODO: Assign List Authority</p>
+                	<span style="float:right;">
+                		<button type="button" name="enableAssign" onclick="return assignListAuthority();">Assign List Authority</button>
+                   	</span>
+                   	<ul class="recipientList" id="authorityList" style="display:none;">
+	                    <g:each var="m" in="${mailingListInstance.members.sort{ it.address } }">
+	                        <li>
+	                        	<g:form action="assignAuthority" style="display: inline;">
+	                        		<g:if test="${ m?.address != mailingListAuthorityInstance?.address }" >
+										<button type="submit" name="assign" value="Assign">Assign</button>
+									</g:if>
+	                        		<g:hiddenField name="list.name" value="${mailingListInstance?.name}" />
+									<g:hiddenField name="display" value="${m?.display}" />
+									<g:hiddenField name="address" value="${m?.address}" />
+									${m?.display} : <strong>${m?.address}</strong>
+								</g:form>
+	                        </li>
+	                    </g:each>
+	                </ul>
 				</g:ifAnyGranted>
+				</p>
 				
 					
                 <h2>${mailingListInstance?.name}</h2>

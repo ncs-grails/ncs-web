@@ -1,5 +1,4 @@
-import edu.umn.auth.User
-import edu.umn.auth.Role
+import edu.umn.ncs.MailingListAuthority
 
 class BootStrap {
 
@@ -8,10 +7,10 @@ class BootStrap {
 		environments {
 			development {
 				println "Bootstrapping..."
-
+				def la = new MailingListAuthority(listName:"NCS_UMN_SiteAdmin",
+					address:"ajz@umn.edu", display:"Aaron J. Zirbes").save(flush:true)
 			}
 		}
-
     }
     def destroy = {
     }
