@@ -122,17 +122,8 @@ div.ncsLogoPanel {
 	<!-- END Unit Graphic Header for home page -->
 
 	<g:include controller="navBar" action="html" />
-	<div id="nav">
-		<div class="ncsLogoPanel shadow">
-			<img src="${resource(dir:'images', file:'ncs_logo_145.png')}"
-				alt="National Children's Study Logo" />
-		</div>
-	</div>
-	<div id="pageBody">
-
+	
 	<g:layoutBody />
-
-	</div>
 
     <!-- BEGIN OPTIONAL UNIT FOOTER -->
     <div class="grid_12" id="unit_footer2">
