@@ -124,7 +124,7 @@ class ManageListsController {
 	@Secured(['ROLE_ASSIGN_LIST_AUTH'])
 	def assignAuthority = {
 		
-		def username = authenticateService.principal()
+		def username = authenticateService.principal()?.username
 		
 		def address = params.address
 		def display = params.display

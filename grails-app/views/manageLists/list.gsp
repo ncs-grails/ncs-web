@@ -32,18 +32,18 @@
 	                	<g:if test="${l.name == 'NCS_UMN_Test'}">
 							<g:ifAnyGranted role="ROLE_LIST_TESTER">
 			                    <li>
-			                    	<a href="#" onClick="return toggleListMembers('${l.name}');" title="Show Members">${l.name}</a>
+			                    	<a href="#" onClick="return toggleListMembers('${l.name}');" title="Show Members">${l.preferredName}</a>
 			                    	(<g:link action="show" id="${l.name}" title="View Details">List Details</g:link>)
-		                    		(<a style="font-size:0.9em;" href="mailto:${l.name}@lists.ncs.umn.edu">Email This List</a>)
+		                    		(<a style="font-size:0.9em;" href="mailto:${l.email}">Email This List</a>)
 		                    		<div id="${l.name}-members" style="display:none;"></div>
 			                    </li>
 							</g:ifAnyGranted>
 	                	</g:if>
 	                	<g:else>
 		                    <li>
-		                    	<a href="#" onClick="return toggleListMembers('${l.name}');" title="Show Members">${l.name}</a>
+		                    	<a href="#" onClick="return toggleListMembers('${l.name}');" title="Show Members">${l.preferredName}</a>
 		                    	(<g:link action="show" id="${l.name}" title="View Details">List Details</g:link>)
-	                    		(<a style="font-size:0.9em;" href="mailto:${l.name}@lists.ncs.umn.edu">Email This List</a>)
+	                    		(<a style="font-size:0.9em;" href="mailto:${l.email}">Email This List</a>)
 	                    		<div id="${l.name}-members" style="display:none;"></div>
 		                    </li>
 	                    </g:else>

@@ -15,7 +15,7 @@
 			</g:isNotLoggedIn>
 		</div>
 		<div class="content-box shadow">
-            <h2>Mailing List Details : ${mailingListInstance?.name}</h2>
+            <h2>Mailing List Details : ${mailingListInstance?.preferredName}</h2>
 
 			<g:if test='${flash.message}'>
 				<div class="whitebox shadow">
@@ -24,7 +24,7 @@
 			</g:if>
 
             <p>The following information is regarding the
-			  ${mailingListInstance?.name} mailing list</p>
+			  ${mailingListInstance?.preferredName} mailing list</p>
 
             <div id="mailingListInstance" class="dialog round">
 				<g:ifAnyGranted role="ROLE_LIST_ADMIN">
@@ -61,8 +61,8 @@
 					
                 <h2>${mailingListInstance?.name}</h2>
 				<p><strong>Description: </strong> ${mailingListInstance?.description}</p>
-				<p><strong>Email Address: </strong> <a href="mailto:${mailingListInstance?.name}@lists.ncs.umn.edu">
-				${mailingListInstance?.name}@lists.ncs.umn.edu</a></p>
+				<p><strong>Email Address: </strong> <a href="mailto:${mailingListInstance?.email}">
+				${mailingListInstance?.email}</a></p>
 				<p><strong>Email Subject: </strong> ${mailingListInstance?.subjectPrefix}</p>
 				
 				<h2>Members: ${mailingListInstance.members.size()}</h2>

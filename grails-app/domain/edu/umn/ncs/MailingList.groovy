@@ -9,6 +9,28 @@ class MailingList {
 	static hasMany = [ members : MailingListMember ]
 
 	String toString() { name }
+	
+	String getPreferredName() {
+		if ( name == "NCS_UMN_Info" ) {
+			return "info"
+		} else if ( name == "NCS_UMN_Operations" ) {
+			return "operations"
+		} else {
+			return name
+		}
+	}
+
+	String getEmail() {
+		if ( name == "NCS_UMN_Info" ) {
+			return "info@ncs.umn.edu"
+		} else if ( name == "NCS_UMN_Operations" ) {
+			return "operations@ncs.umn.edu"
+		} else {
+			return "${name}@lists.ncs.umn.edu"
+		}
+	}
+
+	static transients = [ 'preferredName', 'email' ]
 
     static constraints = {
 		name()
