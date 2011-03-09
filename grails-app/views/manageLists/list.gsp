@@ -21,7 +21,7 @@
 	
 			<g:form name="memberList" action="memberList"></g:form>
 			
-			<div class="shadow" style="padding: 1em; margin:1em;background-color:white;">
+			<div class="whitebox shadow">
 				Looking for a particular list member?
 				<g:link action="findMember">Try searching for them here!</g:link>
 			</div>
@@ -29,12 +29,24 @@
 	        <div id="mailingListInstanceList" class="dialog">
 	            <ul class="mailingList">
 	                <g:each var="l" in="${mailingListInstanceList}">
-	                    <li>
-	                    	<a href="#" onClick="return toggleListMembers('${l.name}');" title="Show Members">${l.name}</a>
-	                    	(<g:link action="show" id="${l.name}" title="View Details">List Details</g:link>)
-                    		(<a style="font-size:0.9em;" href="mailto:${l.name}@lists.ncs.umn.edu">Email This List</a>)
-                    		<div id="${l.name}-members" style="display:none;"></div>
-	                    </li>
+	                	<g:if test="${l.name == 'NCS_UMN_Test'}">
+							<g:ifAnyGranted role="ROLE_LIST_TESTER">
+			                    <li>
+			                    	<a href="#" onClick="return toggleListMembers('${l.name}');" title="Show Members">${l.name}</a>
+			                    	(<g:link action="show" id="${l.name}" title="View Details">List Details</g:link>)
+		                    		(<a style="font-size:0.9em;" href="mailto:${l.name}@lists.ncs.umn.edu">Email This List</a>)
+		                    		<div id="${l.name}-members" style="display:none;"></div>
+			                    </li>
+							</g:ifAnyGranted>
+	                	</g:if>
+	                	<g:else>
+		                    <li>
+		                    	<a href="#" onClick="return toggleListMembers('${l.name}');" title="Show Members">${l.name}</a>
+		                    	(<g:link action="show" id="${l.name}" title="View Details">List Details</g:link>)
+	                    		(<a style="font-size:0.9em;" href="mailto:${l.name}@lists.ncs.umn.edu">Email This List</a>)
+	                    		<div id="${l.name}-members" style="display:none;"></div>
+		                    </li>
+	                    </g:else>
 	                </g:each>
 	            </ul>
 	        </div>

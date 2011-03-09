@@ -6,8 +6,8 @@
 	<link rel="stylesheet" type="text/css" href="${resource(dir:'css',plugin:'ncs-web-template',file:'umn_reset.css')}" />
 	<link rel="stylesheet" type="text/css" href="${resource(dir:'css',plugin:'ncs-web-template',file:'umn_text.css')}" />
 	<link rel="stylesheet" type="text/css" href="${resource(dir:'css',plugin:'ncs-web-template',file:'umn_template.css')}" />
-	<link rel="stylesheet" type="text/css" href="${resource(dir:'css',plugin:'ncs-web-template',file:'umn_optional.css')}" />
 	<link rel="stylesheet" type="text/css" href="${resource(dir:'css',plugin:'ncs-web-template',file:'umn_grails.css')}" />
+	<link rel="stylesheet" type="text/css" href="${resource(dir:'css',plugin:'ncs-web-template',file:'umn_optional.css')}" />
 	<link rel="stylesheet" type="text/css" href="${createLink(controller:'css',action:'template')}" />
 	<link rel="stylesheet" type="text/css" href="${resource(dir:'css',plugin:'ncs-web-template',file:'umn_print.css')}" media="print" />
 	<link rel="stylesheet" type="text/css" href="${createLink(controller:'navBar',action:'css')}" />

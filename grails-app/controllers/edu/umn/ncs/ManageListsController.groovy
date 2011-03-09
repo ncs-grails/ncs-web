@@ -2,7 +2,7 @@ package edu.umn.ncs
 
 import org.codehaus.groovy.grails.plugins.springsecurity.Secured
 
-@Secured(['ROLE_ASSIGN_LIST_AUTH','ROLE_ADD_MEMBER','ROLE_REMOVE_MEMBER','ROLE_EDIT_MEMBER','ROLE_VIEW_MAILMAN_ADMIN_PAGE'])
+@Secured(['ROLE_LIST_VIEWER'])
 class ManageListsController {
 
 	def mailingListService
@@ -12,12 +12,18 @@ class ManageListsController {
 	def list = {
 		def mailingListInstanceList = mailingListService.getLists()
 		
-		[ mailingListInstanceList: mailingListInstanceList ]
+		def breadCrumb = [ [ name:'NCS Email Lists' ] ]
+		
+		[ mailingListInstanceList: mailingListInstanceList
+			, breadCrumb: breadCrumb ]
 	}
 
 	def show = {
 		def mailingListInstance = mailingListService.getList(params.id)
 		def mailingListInstanceList = null
+
+		def breadCrumb = [ [ name:'NCS Email Lists', controller: 'manageLists']
+			, [name:mailingListInstance.name] ]
 		
 		if ( ! mailingListInstance ) {
     	    flash.message = "List Not Found! ( id : ${params.id} )"
@@ -26,7 +32,9 @@ class ManageListsController {
 			mailingListInstanceList = mailingListService.getLists()
 		}
 		
-		[ mailingListInstance: mailingListInstance, mailingListInstanceList: mailingListInstanceList ]
+		[ mailingListInstance: mailingListInstance
+			, mailingListInstanceList: mailingListInstanceList
+			, breadCrumb: breadCrumb ]
 	}
 
 	def memberList = {
@@ -50,5 +58,59 @@ class ManageListsController {
 		def mailingListMemberInstance = mailingListService.getMember(params.id)
 		
 		[ mailingListMemberInstance: mailingListMemberInstance ]
+	}
+	
+	@Secured(['ROLE_REMOVE_LIST_MEMBER'])
+	def deleteMember = {
+		def address = params.address
+		def listName = params.list.name
+		
+		mailingListService.removeMember(listName, address)
+		
+		flash.message = "Removed ${address} from ${listName}"
+		
+		redirect(action:show, id:listName)
+	}
+	
+	@Secured(['ROLE_EDIT_LIST_MEMBER'])
+	def updateMember = {
+		def address = params.address
+		def display = params.display
+		def listName = params.list.name
+		
+		def newMember = new MailingListMember(address:address, 
+			display:display,
+			isGroup: false)
+		
+		if (! newMember.validate() ) {
+			flash.message = "Sorry, invalid email address: ${address}."
+		} else {
+			def addressOriginal = params.addressOriginal
+			def displayOriginal = params.displayOriginal
+			
+			if (address != addressOriginal) {
+				mailingListService.changeEmailAddress(listName, addressOriginal, address, display)
+				flash.message = "Changed ${display}'s address from ${addressOriginal} to ${address}"
+			} else if (display != displayOriginal) {
+				mailingListService.updateMember(addressOriginal, display)
+				flash.message = "Updated ${address}'s name to ${display}"
+			} else {
+				flash.message = "Nothing to update for ${address}."
+			}
+		}
+		redirect(action:show, id:listName)
+		
+	}
+
+	@Secured(['ROLE_ADD_LIST_MEMBER'])
+	def addMember = {
+		def address = params.address
+		def display = params.display
+		def listName = params.list.name
+		
+		mailingListService.addMember(listName, address, display)
+		flash.message = "Added ${display} &lt;${address}&gt; to ${listName}"
+		
+		redirect(action:show, id:listName)
 	}
 }

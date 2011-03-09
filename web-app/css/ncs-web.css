@@ -95,3 +95,18 @@ ul.recipientList li {
 	background-position-y: 0%;
 	vertical-align: middle;
 }
+
+.whitebox {
+	padding: 1em;
+	margin:1em;
+	background-color:white;"
+	border-color: #EEE;
+	border-style: solid;
+	border-width: thin;
+}
+
+.maroon-border {
+	border-color: #7A0019;
+	border-style: solid;
+	border-width: thin;	
+}

@@ -8,7 +8,7 @@
 
 <div id="identity">
 	<g:isLoggedIn>
-		<p>Logged in as <g:loggedInUserInfo field="username" /></p>
+		<p>Logged in as <span title="${rolesList}"><g:loggedInUserInfo field="username" /></span></p>
 	</g:isLoggedIn> <g:isNotLoggedIn>
 		<p>You are not logged in</p>
 	</g:isNotLoggedIn>

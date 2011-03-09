@@ -3,9 +3,6 @@ security {
 	// see DefaultSecurityConfig.groovy for all settable/overridable properties
 	active = true
 
-	loginUserDomainClass = "edu.umn.auth.User"
-	authorityDomainClass = "edu.umn.auth.Role"
-
 	useRequestMapDomainClass = false
 	useControllerAnnotations = true
 
@@ -21,5 +18,17 @@ security {
 		requiredvalidationLevel = 30
 		insufficientValidationLevelMessage = 4
 		validCookieTimeInSeconds = 60 * 60
+	}
+
+	useUmnadRoles = true
+	umnad {
+		ldapUri = 'ldap://localhost'
+		ldapUserDn = 'enhs-hs-svc-grails@ad.umn.edu'
+		ldapUserPw = 'aeb8moshiCaiquei'
+		ldapPeopleBaseDn = 'OU=People,DC=ad,DC=umn,DC=edu'
+		ldapGroupsBaseDn = 'ou=NCS,ou=Groups,ou=ENHS,ou=SPH,ou=Medical,ou=TC,ou=Units,dc=ad,dc=umn,dc=edu'
+		ldapMemberAttribute = 'member'
+		rolePrefix = 'EnHS-NCS-'
+		roleSuffix = ''
 	}
 }

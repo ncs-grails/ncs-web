@@ -11,8 +11,8 @@ class MailingListMember {
 	String toString() { address }
 
     static constraints = {
-		name(nullable:true)
-		email()
+		display(nullable:true)
+		address(email:true)
 		isGroup()
     }
 }

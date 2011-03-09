@@ -69,6 +69,7 @@ class MailingListService {
 		// Part 2, get list members
 		if (list) {
 			list.members = []
+			
 			url = new URL("${urlBase}members/${listname}")
 			conn = url.openConnection()
 			conn.doOutput = true

@@ -1,4 +1,4 @@
-<meta name='layout' content='main' />
+<meta name='layout' content='ncs' />
 <title>Denied</title>
 
 <div class='body'>
