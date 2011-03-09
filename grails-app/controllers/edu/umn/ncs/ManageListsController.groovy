@@ -58,7 +58,11 @@ class ManageListsController {
 	def findMember = {
 		def mailingListMemberInstanceList = mailingListService.getMembers()
 		
-		[ mailingListMemberInstanceList: mailingListMemberInstanceList ]
+		def breadCrumb = [ [ name:'NCS Email Lists', controller:'manageLists', action:'list' ]
+			,[ name:'Find List Member' ] ]
+		
+		[ mailingListMemberInstanceList: mailingListMemberInstanceList
+			, breadCrumb: breadCrumb ]
 	}
 	
 	def showMember = {
