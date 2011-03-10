@@ -2,18 +2,23 @@ $(document).ready(function(){
 
 	$("#memberFilter").keyup(function(){
 		var searchString = $(this).val()
+
 		// hide em all
 		
 		if (searchString.length == 0 ) {
 			$('#mailingListMemberInstanceList > ul > li').show();
 		} else {
-			
-			$('#mailingListMemberInstanceList > ul > li').hide();
-
 			// show the ones that match?
-			$('#mailingListMemberInstanceList > ul > li:contains(' + searchString + ')').each(function(index){
-				$(this).show();
+			$('#mailingListMemberInstanceList > ul > li').each(function(index){
+				var text = $(this).html().toLowerCase();
+
+				if (text.indexOf(searchString.toLowerCase()) > -1) {
+					$(this).show();
+				} else {
+					$(this).hide();
+				}
 			});
+			
 		}
 	});
 });
