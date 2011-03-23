@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 	$("#memberFilter").keyup(function(){
-		var searchString = $(this).val()
+		var searchString = $(this).val().toLowerCase();
 
 		// hide em all
 		
@@ -9,16 +9,15 @@ $(document).ready(function(){
 			$('#mailingListMemberInstanceList > ul > li').show();
 		} else {
 			// show the ones that match?
-			$('#mailingListMemberInstanceList > ul > li').each(function(index){
+			$('#mailingListMemberInstanceList > ul > li').each(function(){
 				var text = $(this).html().toLowerCase();
 
-				if (text.indexOf(searchString.toLowerCase()) > -1) {
+				if (text.indexOf(searchString) > -1) {
 					$(this).show();
 				} else {
 					$(this).hide();
 				}
 			});
-			
 		}
 	});
 });

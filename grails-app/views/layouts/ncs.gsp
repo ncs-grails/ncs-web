@@ -116,7 +116,9 @@ div.ncsLogoPanel {
 	<!-- BEGIN Unit Graphic Header for home page -->
 	<div class="main_head">
 	  <h1 class="nopadding" id="nospace">
-		<img src="${resource(dir:'images',plugin:'ncs-web-template',file:'ncs_header_960x95.jpg')}" alt="National Children's Study" width="960" height="95" />
+		<a href="http://RamseyKids.nationalchildrensstudy.gov/">
+		   <img src="${resource(dir:'images',plugin:'ncs-web-template',file:'ncs_header_960x95.jpg')}" alt="National Children's Study" width="960" height="95" />
+		</a>
 	  </h1>
 	</div>
 	<!-- END Unit Graphic Header for home page -->

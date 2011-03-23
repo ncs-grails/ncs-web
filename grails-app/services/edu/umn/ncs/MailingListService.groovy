@@ -102,8 +102,10 @@ class MailingListService {
 			def json = conn.content.text
 			def response = JSON.parse(json)
 			response.each{
-				def list = new MailingListMember(it)
-				members.add(list)
+				if (it.address) {
+					def list = new MailingListMember(it)
+					members.add(list)
+				}
 			}
 		}
 		return members

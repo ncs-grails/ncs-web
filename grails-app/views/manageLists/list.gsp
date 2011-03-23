@@ -21,14 +21,22 @@
 	
 			<g:form name="memberList" action="memberList"></g:form>
 			
-			<div class="whitebox shadow">
+			<!--   <div class="whitebox shadow">
 				Looking for a particular list member?
 				<g:link action="findMember">Try searching for them here!</g:link>
 			</div>
+			 -->
 			
 	        <div id="mailingListInstanceList" class="dialog">
 	            <ul class="mailingList">
+	            	<g:set var="counter" value="${1}" />
 	                <g:each var="l" in="${mailingListInstanceList}">
+	                	<g:set var="counter" value="${counter + 1}" />
+	                	<g:if test="${counter == 3}">
+	                		<span id="membersSearchLink">
+	                			<g:link action="findMember" >Members Search</g:link>
+	                		</span>
+	                	</g:if>
 	                	<g:if test="${l.name == 'NCS_UMN_Test'}">
 							<g:ifAnyGranted role="ROLE_LIST_TESTER">
 			                    <li>
@@ -36,6 +44,7 @@
 			                    	(<g:link action="show" id="${l.name}" title="View Details">List Details</g:link>)
 		                    		(<a style="font-size:0.9em;" href="mailto:${l.email}">Email This List</a>)
 		                    		<div id="${l.name}-members" style="display:none;"></div>
+		                    		
 			                    </li>
 							</g:ifAnyGranted>
 	                	</g:if>

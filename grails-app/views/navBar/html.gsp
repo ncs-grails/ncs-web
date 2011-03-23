@@ -60,9 +60,8 @@
 		<li><a
 			href="https://www.ncsims.org/dana-na/auth/url_default/welcome.cgi"
 			title="NCS Secure Access Gateway">NCS Portal</a></li>
-		<li><a href="http://www.nationalchildrensstudy.gov/"
-			title="National Children's Study at National Institutes of Health">NCS
-		at NIH</a></li>
+		<li><a href="http://RamseyKids.nationalchildrensstudy.gov/"
+			title="National Institute of Child Health and Human Development">NCS at NICHD</a></li>
 		<li><a href="http://enhs.umn.edu/"
 			title="Environmental Health Sciences">EnHS</a></li>
 		<li><a href="http://www.sph.umn.edu/"

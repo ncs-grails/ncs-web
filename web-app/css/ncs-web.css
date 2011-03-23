@@ -1,5 +1,18 @@
 @CHARSET "UTF-8";
 
+body {
+	background: #F2F2F2;
+	border-color: #E2E2E2;
+	border-width:thin;
+	border-style:solid;
+	font: 1.0em arial, helvetica,clean,sans-serif;
+}
+
+h1 {
+	font-size: 1.6em;
+	font-weight: normal;
+}
+
 h2 {
 	color: #7A0019;
 	font-family: sans-serif;
@@ -28,30 +41,47 @@ h4 {
 }
 
 .content-box {
-	border-color: black;
+	border-color: #999;
 	border-width: thin;
 	border-style: solid;
-	margin-left: 0.5em;
+	margin-left: 0.75em;
+	margin-right: 0.75em;
 	padding-bottom: 0.75em;
 	padding-left: 1.0em;
 	padding-right: 1.0em;
-	background-color: #EEE;
+	background-color: #FFF;
 	margin-bottom: 0.5em;
 }
 
+
+
 .content-box a:link {
-    color:#CC6600;
+    color:#FF4400;
+    font-weight:normal;
+    text-decoration:underline;
     }
 .content-box a:visited {
     color:#CC6600;
     }
 .content-box a:hover {
     color:#FF3300;
-    text-decoration:underline;
+    text-decoration:none;
     }
 .content-box a:active {
     color:#669966;
     }
+
+#membersSearchLink a:link{
+	float:right;
+	color:#7a0019;
+	font-size:1.2em;
+	padding-right:10%;	
+}
+
+#membersSearchLink a:visited {
+    color:#7a0019;
+    }
+
 
 div.readmore {
 	text-align: right;
@@ -91,9 +121,9 @@ ul.recipientList {
 
 ul.mailingList li {
 	padding-left: 32px;
+	padding-right:32px;
 	min-height: 32px;
-	text-
-	list-style-type: none;
+	text-list-style-type: none;
 	background-repeat: no-repeat;
 	background-position-x: 0%;
 	background-position-y: 0%;
@@ -102,8 +132,7 @@ ul.mailingList li {
 ul.recipientList li {
 	padding-left: 32px;
 	min-height: 32px;
-	text-
-	list-style-type: none;
+	text-list-style-type: none;
 	background-repeat: no-repeat;
 	background-position-x: 0%;
 	background-position-y: 0%;
@@ -124,3 +153,4 @@ ul.recipientList li {
 	border-style: solid;
 	border-width: thin;	
 }
+
