@@ -12,9 +12,9 @@ class MailingList {
 	
 	String getPreferredName() {
 		if ( name == "NCS_UMN_Info" ) {
-			return "info"
+			return "Info"
 		} else if ( name == "NCS_UMN_Operations" ) {
-			return "operations"
+			return "Operations"
 		} else {
 			return name
 		}

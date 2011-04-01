@@ -49,8 +49,8 @@
                 		<button type="button" name="enableAssign" onclick="return assignListAuthority();">Assign List Authority</button>
                    	</span>
                    	<ul class="recipientList" id="authorityList" style="display:none;">
-	                    <g:each var="m" in="${mailingListInstance.members.sort{ it.address } }">
-	                        <li>
+	                    <g:each var="m" status="i" in="${mailingListInstance.members.sort{ it.address } }">
+	                        <li class="${(i % 2) == 0  ? 'odd' : 'even'}">
 	                        	<g:form action="assignAuthority" style="display: inline;">
 	                        		<g:if test="${ m?.address != mailingListAuthorityInstance?.address }" >
 										<button type="submit" name="assign" value="Assign">Assign</button>
@@ -99,8 +99,8 @@
 				</g:ifAnyGranted>
 				
                 <ul class="recipientList">
-                    <g:each var="m" in="${mailingListInstance.members.sort{ it.address }}">
-                        <li>
+                    <g:each status="i" var="m" in="${mailingListInstance.members.sort{ it.address }}">
+                        <li class="${(i % 2) == 0  ? 'odd' : 'even'}">
                         	<g:form action="updateMember" style="display: inline;">
                         		<g:hiddenField name="list.name" value="${mailingListInstance?.name}" />
 								<span class="readOnly fullName">${m?.display}</span>

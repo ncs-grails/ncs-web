@@ -29,7 +29,7 @@
 			
 	        <div id="mailingListInstanceList" class="dialog">
 	            <ul class="mailingList">
-	            	<g:set var="counter" value="${1}" />
+	            	<g:set var="counter" value="${1}"/>
 	                <g:each var="l" in="${mailingListInstanceList}">
 	                	<g:set var="counter" value="${counter + 1}" />
 	                	<g:if test="${counter == 3}">

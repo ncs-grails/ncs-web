@@ -15,7 +15,7 @@ class ManageListsController {
 		
 		def breadCrumb = [ [ name:'NCS Email Lists' ] ]
 		
-		[ mailingListInstanceList: mailingListInstanceList
+		[ mailingListInstanceList: mailingListInstanceList.sort{it.preferredName}
 			, breadCrumb: breadCrumb ]
 	}
 
@@ -100,11 +100,17 @@ class ManageListsController {
 			def displayOriginal = params.displayOriginal
 			
 			if (address != addressOriginal) {
-				mailingListService.changeEmailAddress(listName, addressOriginal, address, display)
-				flash.message = "Changed ${display}'s address from ${addressOriginal} to ${address}"
+				if (mailingListService.changeEmailAddress(listName, addressOriginal, address, display)) {
+					flash.message = "Changed ${display}'s address from ${addressOriginal} to ${address}"
+				} else {
+					flash.message = "Failed to changed ${display}'s address from ${addressOriginal} to ${address}"
+				}
 			} else if (display != displayOriginal) {
-				mailingListService.updateMember(addressOriginal, display)
-				flash.message = "Updated ${address}'s name to ${display}"
+				if (mailingListService.updateMember(addressOriginal, display)) {
+					flash.message = "Updated ${address}'s name to ${display}"
+				} else {
+				flash.message = "Failed to updated ${address}'s name to ${display}"
+				}
 			} else {
 				flash.message = "Nothing to update for ${address}."
 			}
@@ -122,9 +128,13 @@ class ManageListsController {
 		def newMember = new MailingListMember(address:address, 
 			display:display, 
 			isGroup: false)
-		println "addMember: ${listName} begin${address}end begin${display}end"
+		println "addMember: ${listName} b*${address}*e b*${display}*e"
 		if (!newMember.validate()) {
-			flash.message = "Sorry, invalid email address: ${address}."
+			if (address.indexOf('<') || address.indexOf('>')) {
+				flash.message = "Sorry, invalid email address: ${address.encodeAsHTML()}.Try removing brackets around email."
+			} else {
+			flash.message = "Sorry, invalid email address: ${address.encodeAsHTML()}."
+			}
 		} else {
 			if (mailingListService.addMember(listName, address, display)) {
 				flash.message = "Added ${display} &lt;${address}&gt; to ${listName}"
@@ -145,21 +155,25 @@ class ManageListsController {
 		def messages = []
 		
 		members.each{
-			def display = it.substring(0,it.indexOf('<') - 1)
-			def address = it.substring(it.indexOf('<') + 1, it.indexOf('>'))
-
-			def newMember = new MailingListMember(address:address,
-				display:display,
-				isGroup: false)
-			
-			if (!newMember.validate()){
-				messages << "Sorry, invalid email address: ${address} for ${display}."
-			} else {
-				if (mailingListService.addMember(listName, address, display)) {
-					messages << "Added ${display} &lt;${address}&gt; to ${listName}"
+			if (it.indexOf('<') > -1 && it.indexOf('>') > -1) {
+				def display = it.substring(0,it.indexOf('<') - 1)
+				def address = it.substring(it.indexOf('<') + 1, it.indexOf('>'))
+	
+				def newMember = new MailingListMember(address:address,
+					display:display,
+					isGroup: false)
+				
+				if (!newMember.validate()){
+					messages << "Sorry, invalid email address: ${address} for ${display}."
 				} else {
-					messages << "Failed to add ${display} &lt;${address}&gt; to ${listName}. First, check if ${address} already on ${listName} list. Brackets around email or other punctuation may also be the problem."
+					if (mailingListService.addMember(listName, address, display)) {
+						messages << "Added ${display} &lt;${address}&gt; to ${listName}"
+					} else {
+						messages << "Failed to add ${display} &lt;${address}&gt; to ${listName}. First, check if ${address} already on ${listName} list. Conflicting punctuation in the email may be the problem."
+					}
 				}
+			} else {
+				messages << "Failed to add ${it.encodeAsHTML()} to ${listName}. Missing bracket(s) around email."
 			}
 			
 		}

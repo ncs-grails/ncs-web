@@ -33,3 +33,4 @@ ul.mailingList li {
 ul.recipientList li {
 	background-image: url( ${resource(dir:'images',file:'at_symbol_24.png')} );
 }
+
