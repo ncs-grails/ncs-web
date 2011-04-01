@@ -154,3 +154,25 @@ ul.recipientList li {
 	border-width: thin;	
 }
 
+.textarea-grey {
+	background-color: #F2F2F2;
+	border: 1px solid;
+	margin: 0 0 0 3%;
+}
+
+.i {
+	font-style:italic;
+}
+
+.example {
+	 margin-left:3%;
+	 font-size:0.8em;
+}
+
+.addMembersSpan {
+	margin: 0 0 15px 15px;
+}
+
+.subscribeButtons {
+		margin: 15px 0 15px 3%;
+}

@@ -119,8 +119,51 @@ class ManageListsController {
 		def display = params.display
 		def listName = params.list.name
 		
-		mailingListService.addMember(listName, address, display)
-		flash.message = "Added ${display} &lt;${address}&gt; to ${listName}"
+		def newMember = new MailingListMember(address:address, 
+			display:display, 
+			isGroup: false)
+		println "addMember: ${listName} begin${address}end begin${display}end"
+		if (!newMember.validate()) {
+			flash.message = "Sorry, invalid email address: ${address}."
+		} else {
+			if (mailingListService.addMember(listName, address, display)) {
+				flash.message = "Added ${display} &lt;${address}&gt; to ${listName}"
+			} else {
+				flash.message = "Failed to add ${display} &lt;${address}&gt; to ${listName}. First, check if ${address} already on ${listName} list. Brackets around email or other punctuation may also be the problem."
+			}
+		}
+		
+		redirect(action:show, id:listName)
+	}
+	
+	@Secured(['ROLE_ADD_LIST_MEMBER'])
+	def addMembers = {
+
+		def listName = params.list.name
+		String[] members = params.addressDisplayList.split('\n')
+		String flashMessage = "";
+		def messages = []
+		
+		members.each{
+			def display = it.substring(0,it.indexOf('<') - 1)
+			def address = it.substring(it.indexOf('<') + 1, it.indexOf('>'))
+
+			def newMember = new MailingListMember(address:address,
+				display:display,
+				isGroup: false)
+			
+			if (!newMember.validate()){
+				messages << "Sorry, invalid email address: ${address} for ${display}."
+			} else {
+				if (mailingListService.addMember(listName, address, display)) {
+					messages << "Added ${display} &lt;${address}&gt; to ${listName}"
+				} else {
+					messages << "Failed to add ${display} &lt;${address}&gt; to ${listName}. First, check if ${address} already on ${listName} list. Brackets around email or other punctuation may also be the problem."
+				}
+			}
+			
+		}
+		flash.messages = messages
 		
 		redirect(action:show, id:listName)
 	}

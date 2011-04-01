@@ -46,7 +46,7 @@
 	</g:ifAnyGranted>
 	
 	<li class="tl_menu"><a
-		href="https://www.ncsims.org/dana-na/auth/url_default/welcome.cgi"
+		href="https://ncsportal.org/dana/home/index.cgi"
 		title="NCS Secure Access Gateway">NCS Portal</a></li>
 	<li class="tl_menu">|</li>
 	<li class="tl_menu"><a href="#">Quick Links</a>
@@ -58,7 +58,7 @@
 			title="The National Childrens Study Speakers' Series Ramsey County Location">Speakers'
 		Series</a></li>
 		<li><a
-			href="https://www.ncsims.org/dana-na/auth/url_default/welcome.cgi"
+			href="https://ncsportal.org/dana/home/index.cgi"
 			title="NCS Secure Access Gateway">NCS Portal</a></li>
 		<li><a href="http://RamseyKids.nationalchildrensstudy.gov/"
 			title="National Institute of Child Health and Human Development">NCS at NICHD</a></li>

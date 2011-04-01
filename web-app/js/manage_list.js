@@ -1,3 +1,4 @@
+
 function toggleListMembers(listName){
 	var divId = '#' + listName + '-members'
 	var content = $(divId).html();
@@ -57,6 +58,15 @@ function removeMemberConfirm(element) {
 
 function showAddMember() {
 	$("form[name='addMember']").toggle('slow');
+}
+
+function showAddMembers() {
+	$("form[name='addMembers']").toggle('slow');
+}
+
+function cancelAddMembers(element) {
+	$("form[name='addMembers']").hide('slow');
+
 }
 
 function assignListAuthority() {

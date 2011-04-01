@@ -23,6 +23,14 @@
 				</div>
 			</g:if>
 
+			<g:if test="${flash.messages}">
+				<div class="whitebox shadow">
+					<g:each in="${flash.messages}">
+						<div class='message'>${it}</div>
+					</g:each>
+				</div>
+			</g:if>
+
             <p>The following information is regarding the
 			  ${mailingListInstance?.preferredName} mailing list</p>
 
@@ -65,7 +73,31 @@
 				${mailingListInstance?.email}</a></p>
 				<p><strong>Email Subject: </strong> ${mailingListInstance?.subjectPrefix}</p>
 				
-				<h2>Members: ${mailingListInstance.members.size()}</h2>
+				<h2>
+					Members: ${mailingListInstance.members.size()}
+					<g:ifAnyGranted role="ROLE_ADD_LIST_MEMBER">
+						<span class="addMembersSpan">
+							<button type="button" class="ro" name="btnAddMembers" onclick="return showAddMembers($(this));">Add Members</button>
+						</span>
+					</g:ifAnyGranted>
+				</h2>
+				<g:ifAnyGranted role="ROLE_ADD_LIST_MEMBER">
+                	<g:form name="addMembers" action="addMembers" style="display: none;">
+                		<g:hiddenField name="list.name" value="${mailingListInstance?.name}"/>
+                		<h3 class="i">
+                			Example:
+                			<div class="example">John Smith &lt;johns@hotmail.com&gt;</div>
+                			<div class="example">Angela Davis &lt;adavis@umn.edu&gt;</div>
+                			<div class="example">Robert Williams &lt;bwill@gmail.com&gt;</div>
+                		</h3>
+                		<g:textArea class="textarea-grey shadow" name="addressDisplayList" rows="10" cols="45"/>
+                		<div class="subscribeButtons">
+		                	<button type="submit" name="subscribe" value="Subscribe" >Subscribe</button>
+		                	<button type="button" name="cancelSubscribe" value="Cancel" onclick="return cancelAddMembers();">Cancel</button>
+		                </div>                		
+                	</g:form>				
+				</g:ifAnyGranted>
+				
                 <ul class="recipientList">
                     <g:each var="m" in="${mailingListInstance.members.sort{ it.address }}">
                         <li>
