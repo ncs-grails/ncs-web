@@ -22,8 +22,9 @@
 						<li><g:link controller="manageLists" action="list">NCS Email Lists</g:link></li>
 					</g:ifAnyGranted>
 					<g:ifAnyGranted role="ROLE_SEGMENT_LOOKUP">
-						<li><a href="https://secure.ncs.umn.edu/ncs-segment-lookup"
-							title="Address Lookup Tool">Address Lookup</a></li>
+						<li>
+							<a href="https://secure.ncs.umn.edu/ncs-segment-lookup" title="Address Lookup Tool">Address Lookup</a>
+						</li>
 					</g:ifAnyGranted>
 				</ul>
 			</div>

@@ -40,6 +40,12 @@ h4 {
 	padding-left: 0.5em;
 }
 
+.useful-link {
+	color: #444;
+	font-size: 1.3em;
+	margin: .8em 0 .3em 0;
+}
+
 .content-box {
 	border-color: #999;
 	border-width: thin;
@@ -176,3 +182,5 @@ ul.recipientList li {
 .subscribeButtons {
 		margin: 15px 0 15px 3%;
 }
+
+

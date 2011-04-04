@@ -8,66 +8,57 @@
 
 <div id="identity">
 	<g:isLoggedIn>
-		<p>Logged in as <span title="${rolesList}"><g:loggedInUserInfo field="username" /></span></p>
+		<p>Logged in as 
+			<span title="${rolesList}">
+				<g:loggedInUserInfo field="username" />
+			</span>
+		</p>
 	</g:isLoggedIn> <g:isNotLoggedIn>
 		<p>You are not logged in</p>
 	</g:isNotLoggedIn>
 </div>
-
-<div class="content-box">
-	<h3>Background Information</h3>
-	<p>The National Children's Study is the largest 
-	and most comprehensive study of children's health 
-	ever conducted in the United States. Read about 
-	its scope, aims, partners and participants.</p>
-	<div class="readmore">
-		<g:link controller="info" action="background" title="More Information">&gt; more</g:link>
+ 
+	<div class="content-box">
+		<g:ifAnyGranted role="ROLE_LIST_VIEWER">
+	 	<div class="useful-link">
+	 		<p><g:link controller="manageLists" action="list">NCS Email Lists</g:link></p>
+	 	</div>
+		</g:ifAnyGranted>
+		
+		<g:ifAnyGranted role="ROLE_SEGMENT_LOOKUP">
+		 	<div class="useful-link">
+		 		<p><a href="https://secure.ncs.umn.edu/ncs-segment-lookup">Address Lookup</a></p>
+		 	</div>
+		</g:ifAnyGranted>
+		
+		<div class="useful-link">
+			<p><a href="https://ncsportal.org/dana/home/index.cgi" title="NCS Secure Access Gateway">NCS Portal</a> - NCS Secure Access Gateway</p>
+		</div>
+		
+		<div class="useful-link">
+			<p><a href="http://hilo.lau-schumann.com/" title="NCS Hi/Lo Collaborative Improvement Network">COIN</a> - NCS Hi/Lo Collaborative Improvement Network</p>
+		</div>		
+		<div class="useful-link">
+			<p><a href="http://www.sph.umn.edu/enhs/research/ncs/" title="The National Childrens Study Speakers' Series Ramsey County Location">Speakers&#39; Series</a> - The NCS Speakers&#39; Series Ramsey County Location</p>
+		</div>
+		
+		<div class="useful-link">
+			<p><a href="http://RamseyKids.nationalchildrensstudy.gov/" title="National Institute of Child Health and Human Development">NCS at NICHD</a> - National Institute of Child Health and Human Development</p>
+		</div>
 	</div>
-</div>
-
-<div class="content-box">
-	<h3>Community Advisory Board Roles</h3>
-	<p>Community Advisory Board members consult with 
-	Ramsey County National Children's Study 
-	investigators about methods for community 
-	engagement and public communications.  Read 
-	about their roles and activities.</p>
-	<div class="readmore">
-		<g:link controller="info" action="cab" title="More Information">&gt; more</g:link>
+ 
+	<div class="content-box">
+		<h3>Contact Information</h3>
+		<p>
+			<ul>
+				<li>National Website: <a href="http://RamseyKids.nationalchildrensstudy.gov/">http://RamseyKids.nationalchildrensstudy.gov/</a></li>
+				<li>Email: <a href="info@ncs.umn.edu">info@ncs.umn.edu</a></li>
+			</ul>
+		</p>
+		<div class="readmore">
+			<g:link controller="info" action="contact" title="More Information">&gt; more</g:link>
+		</div>
 	</div>
-</div>
-
-<div class="content-box">
-	<h3>Frequently Asked Questions</h3>
-	<p>Read about why the National Children's Study 
-	is important, how Ramsey County is involved, 
-	how the study will be conducted, and how the 
-	study findings will be used.</p>
-	<div class="readmore">
-		<g:link controller="info" action="faq" title="More Information">&gt; more</g:link>
-	</div>
-</div>
-
-<div class="content-box">
-	<h3>Contact Information</h3>
-	<p>
-		<ul>
-			<li>National Website: <a href="http://www.nationalchildrensstudy.gov">http://www.nationalchildrensstudy.gov</a></li>
-			<li>Email: <a href="info@ncs.umn.edu">info@ncs.umn.edu</a></li>
-		</ul>
-	</p>
-	<div class="readmore">
-		<g:link controller="info" action="contact" title="More Information">&gt; more</g:link>
-	</div>
-</div>
-
-<div class="content-box">
-	<h3>Questions?</h3>
-	<p>If you need more information about the National 
-	Children's Study at the University of Minnesota not 
-	covered in the FAQ, please send an email to 
-	<a href="info@ncs.umn.edu">info@ncs.umn.edu</a> or view the contact page.</p>
-</div>
 
 </body>
 </html>
