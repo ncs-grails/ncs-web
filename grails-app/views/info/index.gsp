@@ -52,7 +52,7 @@
 		<p>
 			<ul>
 				<li>National Website: <a href="http://RamseyKids.nationalchildrensstudy.gov/">http://RamseyKids.nationalchildrensstudy.gov/</a></li>
-				<li>Email: <a href="info@ncs.umn.edu">info@ncs.umn.edu</a></li>
+				<li>Email: <a href="mailto:info@ncs.umn.edu">info@ncs.umn.edu</a></li>
 			</ul>
 		</p>
 		<div class="readmore">
