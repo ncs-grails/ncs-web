@@ -13,11 +13,19 @@
 </g:each>
 </div>
 <ul id="header_sub_nav">
-
 	<g:ifAnyGranted role="ROLE_LIST_VIEWER,ROLE_SEGMENT_LOOKUP">
 		<li class="tl_menu"><a href="#">NCS Links</a>
 			<div id="nav_cat1" class="dd_menu_top">
 				<ul class="dd_menu">
+					<g:ifAnyGranted role="ROLE_LIST_VIEWER">
+						<li><g:link controller="manageLists" action="list">NCS Email Lists</g:link></li>
+					</g:ifAnyGranted>
+					<g:ifAnyGranted role="ROLE_ALL">
+						<li><a href="https://www.cccs.umn.edu/ncs">NCS Labor Reporting</a></li>
+					</g:ifAnyGranted>
+					<g:ifAnyGranted role="ROLE_ALL">
+						<li><a href="https://secure.ncs.umn.edu/ncs-case-management">NCS Case Management</a></li>
+					</g:ifAnyGranted>
 					<g:ifAnyGranted role="ROLE_LIST_VIEWER">
 						<li><g:link controller="manageLists" action="list">NCS Email Lists</g:link></li>
 					</g:ifAnyGranted>
