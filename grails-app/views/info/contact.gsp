@@ -41,7 +41,7 @@
 		    <h4>Ms. Deb Hendricks (Director of Community Engagement)</h4>
 		    <ul class="list">
 		        <li><b>Email:</b> <a href="mailto:dlhendri@umn.edu">dlhendri@umn.edu</a></li>
-		        <li><b>Phone:</b> 612-625-5165</li>
+		        <li><b>Phone:</b> 612-624-5165</li>
 		    </ul>
 		
 		    <h4>Web Site Questions</h4>
