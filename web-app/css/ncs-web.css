@@ -183,4 +183,11 @@ ul.recipientList li {
 		margin: 15px 0 15px 3%;
 }
 
+.r {
+	font-size: 0.85em;
+	font-weight: bold;
+	color: #7a0019;
+	white-space: nowrap;	
+}
+
 

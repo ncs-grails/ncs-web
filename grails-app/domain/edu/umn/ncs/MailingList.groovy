@@ -20,6 +20,10 @@ class MailingList {
 		}
 	}
 
+	MailingListAuthority getListAuthority() {
+		MailingListAuthority.findByListName(name)
+	}
+	
 	String getEmail() {
 		if ( name == "NCS_UMN_Info" ) {
 			return "info@ncs.umn.edu"
@@ -30,7 +34,7 @@ class MailingList {
 		}
 	}
 
-	static transients = [ 'preferredName', 'email' ]
+	static transients = [ 'preferredName', 'email', 'listAuthority' ]
 
     static constraints = {
 		name()
