@@ -3,7 +3,6 @@ package edu.umn.ncs
 import org.codehaus.groovy.grails.plugins.springsecurity.Secured
 
 @Secured(['ROLE_ALL'])
-
 class InfoController {
 	
 	def authenticateService
