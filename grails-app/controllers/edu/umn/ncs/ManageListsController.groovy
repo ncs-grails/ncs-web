@@ -4,19 +4,23 @@ import org.codehaus.groovy.grails.plugins.springsecurity.Secured
 
 @Secured(['ROLE_LIST_VIEWER'])
 class ManageListsController {
-
+	
 	def mailingListService
 	def authenticateService
-
+	
+	static def debug = true
+	
     def index = { redirect(action:list, params:params) }
 
 	def list = {
 		def mailingListInstanceList = mailingListService.getLists()
+		def mailingListAuthorityInstance = MailingListAuthority.findByListName(mailingListInstanceList.preferredName)
 		
 		def breadCrumb = [ [ name:'NCS Email Lists' ] ]
 		
 		[ mailingListInstanceList: mailingListInstanceList.sort{it.preferredName}
-			, breadCrumb: breadCrumb ]
+			, breadCrumb: breadCrumb
+			, mailingListAuthorityInstance: mailingListAuthorityInstance ]
 	}
 
 	def show = {
@@ -45,15 +49,21 @@ class ManageListsController {
 	}
 
 	// this will export all members of a list in CSV format
+	@Secured(['ROLE_LYRIS'])
 	def exportCsv = {
 		
 		def mailingListInstance = mailingListService.getList(params.id)
-
+		def mailingListAuthorityInstance = MailingListAuthority.findByListName(mailingListInstance.name)
+		
+		if (debug) {
+			println "mailingListInstance: ${mailingListInstance}" 
+			println "params.id: ${params.id}"
+		}
+			
 		if (mailingListInstance) {
 			def now = new Date()
 			def datestamp = g.formatDate(date:now, format:"yyyy-MM-dd")
 			def fileName = "${mailingListInstance.name}-members-${datestamp}.csv"
-	
 	
 			response.setHeader("Content-disposition", "attachment; filename=${fileName}")
 			response.contentType = "application/vnd.ms-excel"
@@ -65,15 +75,18 @@ class ManageListsController {
 			
 			mailingListInstance.members.each{ m ->
 				
-				out << '"' + p.display + '",'
-				out << '"' + p.address + '"'
+				out << '"' + m.display + '",'
+				out << '"' + m.address + '"'
 				out << '\n'
 				
-				out.flush()
-				out.close()
+				if (debug) {
+						println "out: ${m.display} ${m.address}"
+				}
+				
 		
 			}
-			
+			out.flush()
+			out.close()
 		} else {
 			render "Invalid Mailing List passed."
 		}

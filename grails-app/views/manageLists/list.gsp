@@ -42,19 +42,33 @@
 			                    <li>
 			                    	<a href="#" onClick="return toggleListMembers('${l.name}');" title="Show Members">${l.preferredName}</a>
 			                    	(<g:link action="show" id="${l.name}" title="View Details">List Details</g:link>)
-		                    		(<a style="font-size:0.9em;" href="mailto:${l.email}">Email This List</a>)
+			                    	(<a style="font-size:0.9em;" href="mailto:${l.email}">Email This List</a>)
 		                    		<div id="${l.name}-members" style="display:none;"></div>
 		                    		
 			                    </li>
 							</g:ifAnyGranted>
 	                	</g:if>
-	                	<g:else>
-		                    <li>
-		                    	<a href="#" onClick="return toggleListMembers('${l.name}');" title="Show Members">${l.preferredName}</a>
-		                    	(<g:link action="show" id="${l.name}" title="View Details">List Details</g:link>)
-	                    		(<a style="font-size:0.9em;" href="mailto:${l.email}">Email This List</a>)
-	                    		<div id="${l.name}-members" style="display:none;"></div>
-		                    </li>
+	              		<g:else>
+		              		<g:if test="${mailingListAuthorityInstance?.allowLyris} == 1"> 
+								<g:ifAnyGranted role="ROLE_HS_LYRIS">
+				                    <li>
+				                    	<a href="#" onClick="return toggleListMembers('${l.name}');" title="Show Members">${l.preferredName}</a>
+				                    	(<g:link action="show" id="${l.name}" title="View Details">List Details</g:link>)
+				                    	(<g:link action="eportCsv" id="${l.name}" title="Export to CSV">Export</g:link>)
+				                    	(<a style="font-size:0.9em;" href="mailto:${l.email}">Email This List</a>)
+			                    		<div id="${l.name}-members" style="display:none;"></div>
+			                    		
+				                    </li>
+								</g:ifAnyGranted>
+		                	</g:if> 
+	                		<g:else>
+			                    <li>
+			                    	<a href="#" onClick="return toggleListMembers('${l.name}');" title="Show Members">${l.preferredName}</a>
+			                    	(<g:link action="show" id="${l.name}" title="View Details">List Details</g:link>)
+			                    	(<a style="font-size:0.9em;" href="mailto:${l.email}">Email This List</a>)
+		                    		<div id="${l.name}-members" style="display:none;"></div>
+			                    </li>
+			                </g:else>
 	                    </g:else>
 	                </g:each>
 	            </ul>
