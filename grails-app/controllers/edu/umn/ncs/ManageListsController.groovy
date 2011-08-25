@@ -44,6 +44,42 @@ class ManageListsController {
 			, breadCrumb: breadCrumb ]
 	}
 
+	// this will export all members of a list in CSV format
+	def exportCsv = {
+		
+		def mailingListInstance = mailingListService.getList(params.id)
+
+		if (mailingListInstance) {
+			def now = new Date()
+			def datestamp = g.formatDate(date:now, format:"yyyy-MM-dd")
+			def fileName = "${mailingListInstance.name}-members-${datestamp}.csv"
+	
+	
+			response.setHeader("Content-disposition", "attachment; filename=${fileName}")
+			response.contentType = "application/vnd.ms-excel"
+	
+			def out = response.outputStream
+	
+			out << '"name","email"'
+			out << "\n"
+			
+			mailingListInstance.members.each{ m ->
+				
+				out << '"' + p.display + '",'
+				out << '"' + p.address + '"'
+				out << '\n'
+				
+				out.flush()
+				out.close()
+		
+			}
+			
+		} else {
+			render "Invalid Mailing List passed."
+		}
+		
+	}
+	
 	def memberList = {
 		def mailingListInstance = mailingListService.getList(params.id)
 		
