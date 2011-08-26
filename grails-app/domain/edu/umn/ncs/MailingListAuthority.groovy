@@ -4,7 +4,7 @@ class MailingListAuthority {
 	String listName
 	String address
 	String display
-	Boolean allowLyris 
+	Boolean allowLyris = false
 	
 	Date lastUpdated = new Date()
 	String userUpdated

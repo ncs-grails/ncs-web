@@ -14,19 +14,43 @@ class ManageListsController {
 
 	def list = {
 		def mailingListInstanceList = mailingListService.getLists()
-		def mailingListAuthorityInstance = MailingListAuthority.findByListName(mailingListInstanceList.preferredName)
+		
+		if (debug) {
+			println " mailingListInstanceList.allowLyris: ${mailingListInstanceList.allowLyris}"
+		}
+		
+		/*def mailingListAuthorityInstanceList = []
+		def mailingListAuthorityInstance = null
+		
+		mailingListInstanceList.each {
+			mailingListAuthorityInstance = MailingListAuthority.findByListName(it.preferredName)
+			if (mailingListAuthorityInstance?.allowLyris) {
+				mailingListAuthorityInstanceList << mailingListAuthorityInstance
+			}
+			
+		}*/
 		
 		def breadCrumb = [ [ name:'NCS Email Lists' ] ]
 		
+		/*if (debug) {
+			println "mailingListInstanceList: ${mailingListInstanceList} ${mailingListAuthorityInstanceList}"
+			
+		}*/
+	
 		[ mailingListInstanceList: mailingListInstanceList.sort{it.preferredName}
 			, breadCrumb: breadCrumb
-			, mailingListAuthorityInstance: mailingListAuthorityInstance ]
+			/*, mailingListAuthorityInstanceList: mailingListAuthorityInstanceList*/ ]
 	}
 
 	def show = {
 		def mailingListInstance = mailingListService.getList(params.id)
 		def mailingListAuthorityInstance = MailingListAuthority.findByListName(mailingListInstance.name)
 
+		if (debug) {
+			println " mailingListAuthorityInstance: ${mailingListAuthorityInstance}"
+			println " mailingListInstance: ${mailingListInstance}"
+		}
+		
 		def breadCrumb = [ [ name:'NCS Email Lists', controller: 'manageLists']
 			, [name:mailingListInstance.name] ]
 		
