@@ -94,6 +94,7 @@ class ManageListsController {
 	
 			def out = response.outputStream
 	
+			// header per Lyris specs
 			out << '"FullName_","EmailAddr_","Generic_01","Generic_02"'
 			out << "\n"
 			
