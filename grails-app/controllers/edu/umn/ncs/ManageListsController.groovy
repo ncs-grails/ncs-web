@@ -94,13 +94,15 @@ class ManageListsController {
 	
 			def out = response.outputStream
 	
-			out << '"name","email"'
+			out << '"FullName_","EmailAddr_","Generic_01","Generic_02"'
 			out << "\n"
 			
 			mailingListInstance.members.each{ m ->
 				
 				out << '"' + m.display + '",'
-				out << '"' + m.address + '"'
+				out << '"' + m.address + '",'
+				out << '"' + mailingListInstance.name + '",'
+				out << '"' + datestamp + '"'
 				out << '\n'
 				
 				if (debug) {
