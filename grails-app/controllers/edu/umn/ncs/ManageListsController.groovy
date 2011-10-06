@@ -1,6 +1,8 @@
 package edu.umn.ncs
 
 import org.codehaus.groovy.grails.plugins.springsecurity.Secured
+import org.joda.time.LocalDate;
+
 
 @Secured(['ROLE_LIST_VIEWER'])
 class ManageListsController {
@@ -85,10 +87,12 @@ class ManageListsController {
 		}
 			
 		if (mailingListInstance) {
+			def jodaRefDate = new LocalDate()
 			def now = new Date()
 			def datestamp = g.formatDate(date:now, format:"yyyy-MM-dd")
 			def fileName = "${mailingListInstance.name}-members-${datestamp}.csv"
-	
+			def segment = "${jodaRefDate.monthOfYear}:${jodaRefDate.year}" // needed for Lyris segment criterion 
+				
 			response.setHeader("Content-disposition", "attachment; filename=${fileName}")
 			response.contentType = "application/vnd.ms-excel"
 	
@@ -103,7 +107,7 @@ class ManageListsController {
 				out << '"' + m.display + '",'
 				out << '"' + m.address + '",'
 				out << '"' + mailingListInstance.name + '",'
-				out << '"' + datestamp + '"'
+				out << '"' + segment + '"'
 				out << '\n'
 				
 				if (debug) {
