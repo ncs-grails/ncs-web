@@ -31,9 +31,10 @@
 					</g:ifAnyGranted>
 					<g:ifAnyGranted role="ROLE_SEGMENT_LOOKUP">
 						<li>
-							<a href="https://secure.ncs.umn.edu/ncs-segment-lookup" title="Address Lookup Tool">Address Lookup</a>
+							<a href="https://secure.ncs.umn.edu/ncs-segment-lookup/" title="Segment Lookup Tool">Segment Lookup</a>
 						</li>
 					</g:ifAnyGranted>
+					<li><a href="https://secure.ncs.umn.edu/secure-mail/" title="Secure Messaging">Secure Messaging</a></li>
 				</ul>
 			</div>
 		</li>

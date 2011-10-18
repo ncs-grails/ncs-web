@@ -24,79 +24,9 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>jquery-1.4.2.5-grails-app-conf</name>
+			<name>.link_to_grails_plugins</name>
 			<type>2</type>
-			<locationURI>GRAILS_ROOT/1.3.7/projects/ncs-web/plugins/jquery-1.4.2.5/grails-app/conf</locationURI>
-		</link>
-		<link>
-			<name>jquery-1.4.2.5-grails-app-i18n</name>
-			<type>2</type>
-			<locationURI>GRAILS_ROOT/1.3.7/projects/ncs-web/plugins/jquery-1.4.2.5/grails-app/i18n</locationURI>
-		</link>
-		<link>
-			<name>jquery-1.4.2.5-grails-app-services</name>
-			<type>2</type>
-			<locationURI>GRAILS_ROOT/1.3.7/projects/ncs-web/plugins/jquery-1.4.2.5/grails-app/services</locationURI>
-		</link>
-		<link>
-			<name>jquery-1.4.2.5-grails-app-taglib</name>
-			<type>2</type>
-			<locationURI>GRAILS_ROOT/1.3.7/projects/ncs-web/plugins/jquery-1.4.2.5/grails-app/taglib</locationURI>
-		</link>
-		<link>
-			<name>jquery-1.4.2.5-src-groovy</name>
-			<type>2</type>
-			<locationURI>GRAILS_ROOT/1.3.7/projects/ncs-web/plugins/jquery-1.4.2.5/src/groovy</locationURI>
-		</link>
-		<link>
-			<name>ncs-web-template-0.2-grails-app-controllers</name>
-			<type>2</type>
-			<locationURI>GRAILS_ROOT/1.3.7/projects/ncs-web/plugins/ncs-web-template-0.2/grails-app/controllers</locationURI>
-		</link>
-		<link>
-			<name>ncs-web-template-0.2-grails-app-views</name>
-			<type>2</type>
-			<locationURI>GRAILS_ROOT/1.3.7/projects/ncs-web/plugins/ncs-web-template-0.2/grails-app/views</locationURI>
-		</link>
-		<link>
-			<name>tomcat-1.3.7-src-groovy</name>
-			<type>2</type>
-			<locationURI>GRAILS_ROOT/1.3.7/projects/ncs-web/plugins/tomcat-1.3.7/src/groovy</locationURI>
-		</link>
-		<link>
-			<name>umn-acegi-0.1.8-grails-app-conf</name>
-			<type>2</type>
-			<locationURI>GRAILS_ROOT/1.3.7/projects/ncs-web/plugins/umn-acegi-0.1.8/grails-app/conf</locationURI>
-		</link>
-		<link>
-			<name>umn-acegi-0.1.8-grails-app-controllers</name>
-			<type>2</type>
-			<locationURI>GRAILS_ROOT/1.3.7/projects/ncs-web/plugins/umn-acegi-0.1.8/grails-app/controllers</locationURI>
-		</link>
-		<link>
-			<name>umn-acegi-0.1.8-grails-app-i18n</name>
-			<type>2</type>
-			<locationURI>GRAILS_ROOT/1.3.7/projects/ncs-web/plugins/umn-acegi-0.1.8/grails-app/i18n</locationURI>
-		</link>
-		<link>
-			<name>umn-acegi-0.1.8-grails-app-services</name>
-			<type>2</type>
-			<locationURI>GRAILS_ROOT/1.3.7/projects/ncs-web/plugins/umn-acegi-0.1.8/grails-app/services</locationURI>
-		</link>
-		<link>
-			<name>umn-acegi-0.1.8-grails-app-taglib</name>
-			<type>2</type>
-			<locationURI>GRAILS_ROOT/1.3.7/projects/ncs-web/plugins/umn-acegi-0.1.8/grails-app/taglib</locationURI>
-		</link>
-		<link>
-			<name>umn-acegi-0.1.8-src-groovy</name>
-			<type>2</type>
-			<locationURI>GRAILS_ROOT/1.3.7/projects/ncs-web/plugins/umn-acegi-0.1.8/src/groovy</locationURI>
-		</link>
-		<link>
-			<name>umn-acegi-0.1.8-src-java</name>
-			<type>2</type>
-			<locationURI>GRAILS_ROOT/1.3.7/projects/ncs-web/plugins/umn-acegi-0.1.8/src/java</locationURI>
+			<locationURI>GRAILS_ROOT/1.3.7/projects/ncs-web/plugins</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>
