@@ -75,7 +75,7 @@ class ManageListsController {
 	}
 
 	// this will export all members of a list in CSV format
-	@Secured(['ROLE_LYRIS'])
+	@Secured(['ROLE_LYRIS',"ROLE_IT"])
 	def exportCsv = {
 		
 		def mailingListInstance = mailingListService.getList(params.id)
