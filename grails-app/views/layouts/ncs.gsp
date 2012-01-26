@@ -59,6 +59,7 @@ div.ncsLogoPanel {
 
 	  <g:layoutHead />
 	  <g:javascript library="application" />
+	<g:javascript src="google-analytics.js" />
   </head>
   <body class="center">
 

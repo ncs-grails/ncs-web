@@ -25,14 +25,14 @@
 	 	</div>
 		</g:ifAnyGranted>
 		
-		<g:ifAnyGranted role="ROLE_SEGMENT_LOOKUP">
+		<g:ifAnyGranted role="ROLE_NCS">
 		 	<div class="useful-link">
-		 		<p><a href="https://secure.ncs.umn.edu/ncs-segment-lookup">Address Lookup</a></p>
+		 		<p><a href="https://secure.ncs.umn.edu/ncs-case-management">Case Management</a></p>
 		 	</div>
 		</g:ifAnyGranted>
 		
 		<div class="useful-link">
-			<p><a href="https://ncsportal.org/dana/home/index.cgi" title="NCS Secure Access Gateway">NCS Portal</a> - NCS Secure Access Gateway</p>
+			<p><a href="https://www.ncsportal.org/" title="NCS Secure Access Gateway">NCS Portal</a> - NCS Secure Access Gateway</p>
 		</div>
 		
 		<div class="useful-link">
