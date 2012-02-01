@@ -1,8 +1,5 @@
 package edu.umn.ncs
 
-import grails.plugins.springsecurity.Secured
-
-
 class HomeController {
 
 	def springSecurityService

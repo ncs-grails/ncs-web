@@ -37,3 +37,14 @@ grails.project.dependency.resolution = {
 		provided ":spring-security-mock:1.0.1"
 	}
 }
+codenarc.reports = {
+	JenkinsXmlReport('xml') {
+		outputFile = 'target/test-reports/CodeNarcReport.xml'
+		title = 'CodeNarc Report for NCS Web Site (public)'
+	}
+	JenkinsHtmlReport('html') {
+		outputFile = 'CodeNarcReport.html'
+		title = 'CodeNarc Report for NCS Web Site (public)'
+	}
+}
+codenarc.propertiesFile = 'grails-app/conf/codenarc.properties'
