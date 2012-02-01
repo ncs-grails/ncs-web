@@ -1,14 +1,14 @@
 package edu.umn.ncs
 
-import org.codehaus.groovy.grails.plugins.springsecurity.Secured
+import grails.plugins.springsecurity.Secured
 
 
 class HomeController {
 
-	def authenticateService
+	def springSecurityService
 	
     def index = {
-		if (authenticateService.loggedIn) {
+		if (springSecurityService.loggedIn) {
 			redirect(controller:"info")
 		}
 		

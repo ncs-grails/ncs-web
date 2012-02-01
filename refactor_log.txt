@@ -1,0 +1,59 @@
+Starting Process at Wed Feb  1 12:12:28 CST 2012
+Updating Config.groovy
+Moving DataSource.groovy to /home/AD/ngp/development/grails/grails-ncs/config/development/ncs-config.groovy
+./grails-app/controllers/edu/umn/ncs/InfoController.groovy	Updating	Annotation	grails.plugins.springsecurity.Secured
+./grails-app/controllers/edu/umn/ncs/InfoController.groovy	Updating	Definition	def springSecurityService
+./grails-app/controllers/edu/umn/ncs/InfoController.groovy	Updating	DefinitionuthenticateService.principal
+./grails-app/controllers/edu/umn/ncs/ManageListsController.groovy	Updating	Annotation	grails.plugins.springsecurity.Secured
+./grails-app/controllers/edu/umn/ncs/ManageListsController.groovy	Updating	Definition	def springSecurityService
+./grails-app/controllers/edu/umn/ncs/ManageListsController.groovy	Updating	DefinitionuthenticateService.principal
+./grails-app/controllers/edu/umn/ncs/HomeController.groovy	Updating	Annotation	grails.plugins.springsecurity.Secured
+./grails-app/controllers/edu/umn/ncs/HomeController.groovy	Updating	Definition	def springSecurityService
+./grails-app/controllers/edu/umn/ncs/NavBarController.groovy	Updating	Annotation	grails.plugins.springsecurity.Secured
+./grails-app/controllers/edu/umn/ncs/InstructionsController.groovy	Updating	Annotation	grails.plugins.springsecurity.Secured
+./grails-app/views/manageLists/findMember.gsp\tUpdating\tTags\tloggedInUserInfo
+./grails-app/views/manageLists/findMember.gsp\tUpdating\tTags\tusername
+./grails-app/views/manageLists/findMember.gsp\tUpdating\tTags\tifLoggedIn
+./grails-app/views/manageLists/findMember.gsp\tUpdating\tTags\tifNotLoggedIn
+./grails-app/views/manageLists/show.gsp\tUpdating\tTags\tifAnyGranted
+./grails-app/views/manageLists/show.gsp\tUpdating\tTags\tloggedInUserInfo
+./grails-app/views/manageLists/show.gsp\tUpdating\tTags\tusername
+./grails-app/views/manageLists/show.gsp\tUpdating\tTags\tifLoggedIn
+./grails-app/views/manageLists/show.gsp\tUpdating\tTags\tifNotLoggedIn
+./grails-app/views/manageLists/list.gsp\tUpdating\tTags\tifAnyGranted
+./grails-app/views/manageLists/list.gsp\tUpdating\tTags\tloggedInUserInfo
+./grails-app/views/manageLists/list.gsp\tUpdating\tTags\tusername
+./grails-app/views/manageLists/list.gsp\tUpdating\tTags\tifLoggedIn
+./grails-app/views/manageLists/list.gsp\tUpdating\tTags\tifNotLoggedIn
+./grails-app/views/navBar/html.gsp\tUpdating\tTags\tifAnyGranted
+./grails-app/views/navBar/html.gsp\tUpdating\tTags\tifLoggedIn
+./grails-app/views/navBar/html.gsp\tUpdating\tTags\tifNotLoggedIn
+./grails-app/views/instructions/newList.gsp\tUpdating\tTags\tloggedInUserInfo
+./grails-app/views/instructions/newList.gsp\tUpdating\tTags\tusername
+./grails-app/views/instructions/newList.gsp\tUpdating\tTags\tifLoggedIn
+./grails-app/views/instructions/newList.gsp\tUpdating\tTags\tifNotLoggedIn
+./grails-app/views/instructions/listChanges.gsp\tUpdating\tTags\tloggedInUserInfo
+./grails-app/views/instructions/listChanges.gsp\tUpdating\tTags\tusername
+./grails-app/views/instructions/listChanges.gsp\tUpdating\tTags\tifLoggedIn
+./grails-app/views/instructions/listChanges.gsp\tUpdating\tTags\tifNotLoggedIn
+./grails-app/views/info/index.gsp\tUpdating\tTags\tifAnyGranted
+./grails-app/views/info/index.gsp\tUpdating\tTags\tloggedInUserInfo
+./grails-app/views/info/index.gsp\tUpdating\tTags\tusername
+./grails-app/views/info/index.gsp\tUpdating\tTags\tifLoggedIn
+./grails-app/views/info/index.gsp\tUpdating\tTags\tifNotLoggedIn
+./grails-app/views/info/background.gsp\tUpdating\tTags\tloggedInUserInfo
+./grails-app/views/info/background.gsp\tUpdating\tTags\tusername
+./grails-app/views/info/background.gsp\tUpdating\tTags\tifLoggedIn
+./grails-app/views/info/background.gsp\tUpdating\tTags\tifNotLoggedIn
+./grails-app/views/info/contact.gsp\tUpdating\tTags\tloggedInUserInfo
+./grails-app/views/info/contact.gsp\tUpdating\tTags\tusername
+./grails-app/views/info/contact.gsp\tUpdating\tTags\tifLoggedIn
+./grails-app/views/info/contact.gsp\tUpdating\tTags\tifNotLoggedIn
+./grails-app/views/info/faq.gsp\tUpdating\tTags\tloggedInUserInfo
+./grails-app/views/info/faq.gsp\tUpdating\tTags\tusername
+./grails-app/views/info/faq.gsp\tUpdating\tTags\tifLoggedIn
+./grails-app/views/info/faq.gsp\tUpdating\tTags\tifNotLoggedIn
+./grails-app/views/home/index.gsp\tUpdating\tTags\tloggedInUserInfo
+./grails-app/views/home/index.gsp\tUpdating\tTags\tusername
+./grails-app/views/home/index.gsp\tUpdating\tTags\tifLoggedIn
+./grails-app/views/home/index.gsp\tUpdating\tTags\tifNotLoggedIn

@@ -7,29 +7,29 @@
 <h1>Ramsey County National Children's Study</h1>
 
 <div id="identity">
-	<g:isLoggedIn>
+	<sec:ifLoggedIn>
 		<p>Logged in as 
 			<span title="${rolesList}">
-				<g:loggedInUserInfo field="username" />
+				<sec:username/>
 			</span>
 		</p>
-	</g:isLoggedIn> <g:isNotLoggedIn>
+	</sec:ifLoggedIn> <sec:ifNotLoggedIn>
 		<p>You are not logged in</p>
-	</g:isNotLoggedIn>
+	</sec:ifNotLoggedIn>
 </div>
  
 	<div class="content-box">
-		<g:ifAnyGranted role="ROLE_LIST_VIEWER">
+		<sec:ifAnyGranted roles="ROLE_LIST_VIEWER">
 	 	<div class="useful-link">
 	 		<p><g:link controller="manageLists" action="list">NCS Email Lists</g:link></p>
 	 	</div>
-		</g:ifAnyGranted>
+		</sec:ifAnyGranted>
 		
-		<g:ifAnyGranted role="ROLE_NCS">
+		<sec:ifAnyGranted roles="ROLE_NCS">
 		 	<div class="useful-link">
 		 		<p><a href="https://secure.ncs.umn.edu/ncs-case-management">Case Management</a></p>
 		 	</div>
-		</g:ifAnyGranted>
+		</sec:ifAnyGranted>
 		
 		<div class="useful-link">
 			<p><a href="https://www.ncsportal.org/" title="NCS Secure Access Gateway">NCS Portal</a> - NCS Secure Access Gateway</p>

@@ -1,6 +1,6 @@
 package edu.umn.ncs
 
-import org.codehaus.groovy.grails.plugins.springsecurity.Secured
+import grails.plugins.springsecurity.Secured
 import org.joda.time.LocalDate;
 
 
@@ -8,7 +8,7 @@ import org.joda.time.LocalDate;
 class ManageListsController {
 	
 	def mailingListService
-	def authenticateService
+	def springSecurityService
 	
 	static def debug = false
 	
@@ -265,7 +265,7 @@ class ManageListsController {
 	@Secured(['ROLE_ASSIGN_LIST_AUTH'])
 	def assignAuthority = {
 		
-		def username = authenticateService.principal()?.username
+		def username = springSecurityService.principal?.username
 		
 		def address = params.address
 		def display = params.display

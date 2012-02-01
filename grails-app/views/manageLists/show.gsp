@@ -8,11 +8,11 @@
     <body>
 		<h1>National Children's Study - Ramsey County Location</h1>
 		<div id="identity">
-			<g:isLoggedIn>
-				<p>Logged in as <g:loggedInUserInfo field="username" /></p>
-			</g:isLoggedIn> <g:isNotLoggedIn>
+			<sec:ifLoggedIn>
+				<p>Logged in as <sec:username/></p>
+			</sec:ifLoggedIn> <sec:ifNotLoggedIn>
 				<p>You are not logged in</p>
-			</g:isNotLoggedIn>
+			</sec:ifNotLoggedIn>
 		</div>
 		<div class="content-box shadow">
             <h2>Mailing List Details : ${mailingListInstance?.preferredName}</h2>
@@ -35,16 +35,16 @@
 			  ${mailingListInstance?.preferredName} mailing list</p>
 
             <div id="mailingListInstance" class="dialog round">
-				<g:ifAnyGranted role="ROLE_LIST_ADMIN">
+				<sec:ifAnyGranted roles="ROLE_LIST_ADMIN">
 				<h2>Administration</h2>
 					<p>You can access <a href="http://lists.ncs.umn.edu/admin/${mailingListInstance?.name}">the Mailman Administration page
 					here.</a></p>
-				</g:ifAnyGranted>
+				</sec:ifAnyGranted>
 				
 				<h2>List Authority</h2>
 				<p>${mailingListAuthorityInstance?.display} : 
 					<a href="mailto:${mailingListAuthorityInstance?.address}">${mailingListAuthorityInstance?.address}</a>
-				<g:ifAnyGranted role="ROLE_ASSIGN_LIST_AUTH">
+				<sec:ifAnyGranted roles="ROLE_ASSIGN_LIST_AUTH">
                 	<span style="float:right;">
                 		<button type="button" name="enableAssign" onclick="return assignListAuthority();">Assign List Authority</button>
                    	</span>
@@ -63,7 +63,7 @@
 	                        </li>
 	                    </g:each>
 	                </ul>
-				</g:ifAnyGranted>
+				</sec:ifAnyGranted>
 				</p>
 				
 					
@@ -75,13 +75,13 @@
 				
 				<h2>
 					Members: ${mailingListInstance.members.size()}
-					<g:ifAnyGranted role="ROLE_ADD_LIST_MEMBER">
+					<sec:ifAnyGranted roles="ROLE_ADD_LIST_MEMBER">
 						<span class="addMembersSpan">
 							<button type="button" class="ro" name="btnAddMembers" onclick="return showAddMembers($(this));">Add Members</button>
 						</span>
-					</g:ifAnyGranted>
+					</sec:ifAnyGranted>
 				</h2>
-				<g:ifAnyGranted role="ROLE_ADD_LIST_MEMBER">
+				<sec:ifAnyGranted roles="ROLE_ADD_LIST_MEMBER">
                 	<g:form name="addMembers" action="addMembers" style="display: none;">
                 		<g:hiddenField name="list.name" value="${mailingListInstance?.name}"/>
                 		<h3 class="i">
@@ -96,7 +96,7 @@
 		                	<button type="button" name="cancelSubscribe" value="Cancel" onclick="return cancelAddMembers();">Cancel</button>
 		                </div>                		
                 	</g:form>				
-				</g:ifAnyGranted>
+				</sec:ifAnyGranted>
 				
                 <ul class="recipientList">
                     <g:each status="i" var="m" in="${mailingListInstance.members.sort{ it.address }}">
@@ -111,13 +111,13 @@
 								<g:textField class="editable" name="address" value="${m?.address}" style="display:none;"/>
 								<g:hiddenField name="addressOriginal" value="${m?.address}" />
 								<span style="float:right;">
-									<g:ifAnyGranted role="ROLE_EDIT_LIST_MEMBER">
+									<sec:ifAnyGranted roles="ROLE_EDIT_LIST_MEMBER">
 									<button type="button" class="readOnly" name="edit" onclick="return showMemberEdit($(this));">Edit</button>
 									<button type="submit" style="display:none;" class="editable" name="save" value="Save">Save</button>
-									</g:ifAnyGranted>
-									<g:ifAnyGranted role="ROLE_REMOVE_LIST_MEMBER">
+									</sec:ifAnyGranted>
+									<sec:ifAnyGranted roles="ROLE_REMOVE_LIST_MEMBER">
 										<button type="submit" class="readOnly" name="remove" value="Remove" onclick="return removeMemberConfirm($(this));">Remove</button>
-									</g:ifAnyGranted>
+									</sec:ifAnyGranted>
 									<button type="button" style="display:none;" class="editable" name="cancel" onclick="return cancelMemberEdit($(this));">Cancel</button>
 								</span>
 							</g:form>
@@ -125,7 +125,7 @@
                     </g:each>
                 </ul>
                 
-                <g:ifAnyGranted role="ROLE_ADD_LIST_MEMBER">
+                <sec:ifAnyGranted roles="ROLE_ADD_LIST_MEMBER">
 	                <p style="padding-right: 0;">	&nbsp;
 	                	<span style="float:right;">
 	                		<button type="button" class="readOnly" name="add" onclick="return showAddMember($(this));">Add New Member</button>
@@ -142,7 +142,7 @@
 		                	</span>
 	                	</g:form>
 	                </p>
-                </g:ifAnyGranted>
+                </sec:ifAnyGranted>
             </div>
         </div>
     </body>

@@ -7,11 +7,11 @@
 <h1>Ramsey County National Children's Study</h1>
 
 <div id="identity">
-	<g:isLoggedIn>
-		<p>Logged in as <g:loggedInUserInfo field="username" /></p>
-	</g:isLoggedIn> <g:isNotLoggedIn>
+	<sec:ifLoggedIn>
+		<p>Logged in as <sec:username/></p>
+	</sec:ifLoggedIn> <sec:ifNotLoggedIn>
 		<p>You are not logged in</p>
-	</g:isNotLoggedIn>
+	</sec:ifNotLoggedIn>
 </div>
 
 <div class="content-box">

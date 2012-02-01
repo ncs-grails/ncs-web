@@ -1,14 +1,14 @@
 package edu.umn.ncs
 
-import org.codehaus.groovy.grails.plugins.springsecurity.Secured
+import grails.plugins.springsecurity.Secured
 
 @Secured(['ROLE_ALL'])
 class InfoController {
 	
-	def authenticateService
+	def springSecurityService
 	
     def index = {
-		def me = authenticateService.principal()
+		def me = springSecurityService.principal
 		
 		def roles = me?.getAuthorities()
 		

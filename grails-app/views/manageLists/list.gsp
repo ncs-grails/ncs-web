@@ -8,11 +8,11 @@
     <body>
                 <h1>National Children's Study - Ramsey County Location</h1>
                 <div id="identity">
-                        <g:isLoggedIn>
-                                <p>Logged in as <g:loggedInUserInfo field="username" /></p>
-                        </g:isLoggedIn> <g:isNotLoggedIn>
+                        <sec:ifLoggedIn>
+                                <p>Logged in as <sec:username/></p>
+                        </sec:ifLoggedIn> <sec:ifNotLoggedIn>
                                 <p>You are not logged in</p>
-                        </g:isNotLoggedIn>
+                        </sec:ifNotLoggedIn>
                 </div>
                 <div class="content-box shadow">
 
@@ -38,7 +38,7 @@
                                         </span>
                                 </g:if>
                                 <g:if test="${l.allowLyris}"> 
-										<g:ifAnyGranted role="ROLE_LYRIS">
+										<sec:ifAnyGranted roles="ROLE_LYRIS">
 				                    		<li>
 					                    		<a href="#" onClick="return toggleListMembers('${l.name}');" title="Show Members">${l.preferredName}</a>
 						                    	(<g:link action="show" id="${l.name}" title="View Details">List Details</g:link>)
@@ -46,11 +46,11 @@
 						                    	(<a style="font-size:0.9em;" href="mailto:${l.email}">Email This List</a>)
 					                    		<div id="${l.name}-members" style="display:none;"></div>
 				                    		</li>
-										</g:ifAnyGranted>
+										</sec:ifAnyGranted>
 			                	</g:if>
                                 <g:else>
 			              			<g:if test="${l.name == 'NCS_UMN_Test'}">
-	                                	<g:ifAnyGranted role="ROLE_LIST_TESTER">
+	                                	<sec:ifAnyGranted roles="ROLE_LIST_TESTER">
 	                                            <li>
 	                                                <a href="#" onClick="return toggleListMembers('${l.name}');" title="Show Members">${l.preferredName}</a>
 	                                                (<g:link action="show" id="${l.name}" title="View Details">List Details</g:link>)
@@ -58,7 +58,7 @@
 	                                                <div id="${l.name}-members" style="display:none;"></div>
 	                                                
 	                                            </li>
-	                                    </g:ifAnyGranted>
+	                                    </sec:ifAnyGranted>
 	                                </g:if>
 	                                <g:else>
 				                    	<li>
