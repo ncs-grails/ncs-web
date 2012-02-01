@@ -10,7 +10,7 @@ class ManageListsController {
 	def mailingListService
 	def authenticateService
 	
-	static def debug = true
+	static def debug = false
 	
     def index = { redirect(action:list, params:params) }
 
