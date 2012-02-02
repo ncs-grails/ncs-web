@@ -11,7 +11,10 @@ class HomeControllerTests extends ControllerUnitTestCase {
         super.tearDown()
     }
 
-    void testSomething() {
+    void testIndex() {
+		def c = new HomeController()
+
+		assert c.index
 
     }
 }

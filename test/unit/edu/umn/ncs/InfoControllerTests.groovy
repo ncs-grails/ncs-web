@@ -12,6 +12,9 @@ class InfoControllerTests extends ControllerUnitTestCase {
     }
 
     void testSomething() {
+		def c = new InfoController()
+
+		assert c.index
 
     }
 }
