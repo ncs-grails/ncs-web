@@ -13,23 +13,23 @@
 </g:each>
 </div>
 <ul id="header_sub_nav">
-	<sec:ifAnyGranted roles="ROLE_LIST_VIEWER,ROLE_SEGMENT_LOOKUP">
+	<sec:ifAnyGranted roles="ROLE_NCS_LIST_VIEWER,ROLE_NCS_SEGMENT_LOOKUP">
 		<li class="tl_menu"><a href="#">NCS Links</a>
 			<div id="nav_cat1" class="dd_menu_top">
 				<ul class="dd_menu">
-					<sec:ifAnyGranted roles="ROLE_LIST_VIEWER">
+					<sec:ifAnyGranted roles="ROLE_NCS_LIST_VIEWER">
 						<li><g:link controller="manageLists" action="list">NCS Email Lists</g:link></li>
 					</sec:ifAnyGranted>
-					<sec:ifAnyGranted roles="ROLE_ALL">
+					<sec:ifAnyGranted roles="ROLE_NCS_ALL">
 						<li><a href="https://www.cccs.umn.edu/ncs">NCS Labor Reporting</a></li>
 					</sec:ifAnyGranted>
-					<sec:ifAnyGranted roles="ROLE_ALL">
+					<sec:ifAnyGranted roles="ROLE_NCS_ALL">
 						<li><a href="https://secure.ncs.umn.edu/ncs-case-management">NCS Case Management</a></li>
 					</sec:ifAnyGranted>
-					<sec:ifAnyGranted roles="ROLE_LIST_VIEWER">
+					<sec:ifAnyGranted roles="ROLE_NCS_LIST_VIEWER">
 						<li><g:link controller="manageLists" action="list">NCS Email Lists</g:link></li>
 					</sec:ifAnyGranted>
-					<sec:ifAnyGranted roles="ROLE_SEGMENT_LOOKUP">
+					<sec:ifAnyGranted roles="ROLE_NCS_SEGMENT_LOOKUP">
 						<li>
 							<a href="https://secure.ncs.umn.edu/ncs-segment-lookup/" title="Segment Lookup Tool">Segment Lookup</a>
 						</li>
@@ -41,7 +41,7 @@
 		<li class="tl_menu">|</li>
 	</sec:ifAnyGranted>
 	
-	<sec:ifAnyGranted roles="ROLE_LIST_VIEWER">
+	<sec:ifAnyGranted roles="ROLE_NCS_LIST_VIEWER">
 		<li class="tl_menu"><a href="#">Instructions</a>
 			<div id="nav_cat2" class="dd_menu_top">
 				<ul class="dd_menu">

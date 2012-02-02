@@ -4,7 +4,7 @@ import grails.plugins.springsecurity.Secured
 import org.joda.time.LocalDate;
 
 
-@Secured(['ROLE_LIST_VIEWER'])
+@Secured(['ROLE_NCS_LIST_VIEWER'])
 class ManageListsController {
 	
 	def mailingListService
@@ -75,7 +75,7 @@ class ManageListsController {
 	}
 
 	// this will export all members of a list in CSV format
-	@Secured(['ROLE_LYRIS',"ROLE_IT"])
+	@Secured(['ROLE_NCS_LYRIS',"ROLE_NCS_IT"])
 	def exportCsv = {
 		
 		def mailingListInstance = mailingListService.getList(params.id)
@@ -151,7 +151,7 @@ class ManageListsController {
 		[ mailingListMemberInstance: mailingListMemberInstance ]
 	}
 	
-	@Secured(['ROLE_REMOVE_LIST_MEMBER'])
+	@Secured(['ROLE_NCS_REMOVE_LIST_MEMBER'])
 	def deleteMember = {
 		def address = params.address
 		def listName = params.list.name
@@ -163,7 +163,7 @@ class ManageListsController {
 		redirect(action:show, id:listName)
 	}
 	
-	@Secured(['ROLE_EDIT_LIST_MEMBER'])
+	@Secured(['ROLE_NCS_EDIT_LIST_MEMBER'])
 	def updateMember = {
 		def address = params.address
 		def display = params.display
@@ -199,7 +199,7 @@ class ManageListsController {
 		
 	}
 
-	@Secured(['ROLE_ADD_LIST_MEMBER'])
+	@Secured(['ROLE_NCS_ADD_LIST_MEMBER'])
 	def addMember = {
 		def address = params.address
 		def display = params.display
@@ -226,7 +226,7 @@ class ManageListsController {
 		redirect(action:show, id:listName)
 	}
 	
-	@Secured(['ROLE_ADD_LIST_MEMBER'])
+	@Secured(['ROLE_NCS_ADD_LIST_MEMBER'])
 	def addMembers = {
 
 		def listName = params.list.name
@@ -262,7 +262,7 @@ class ManageListsController {
 		redirect(action:show, id:listName)
 	}
 	
-	@Secured(['ROLE_ASSIGN_LIST_AUTH'])
+	@Secured(['ROLE_NCS_ASSIGN_LIST_AUTH'])
 	def assignAuthority = {
 		
 		def username = springSecurityService.principal?.username

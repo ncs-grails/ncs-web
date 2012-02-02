@@ -38,7 +38,7 @@
                                         </span>
                                 </g:if>
                                 <g:if test="${l.allowLyris}"> 
-										<sec:ifAnyGranted roles="ROLE_LYRIS">
+										<sec:ifAnyGranted roles="ROLE_NCS_LYRIS">
 				                    		<li>
 					                    		<a href="#" onClick="return toggleListMembers('${l.name}');" title="Show Members">${l.preferredName}</a>
 						                    	(<g:link action="show" id="${l.name}" title="View Details">List Details</g:link>)
@@ -50,7 +50,7 @@
 			                	</g:if>
                                 <g:else>
 			              			<g:if test="${l.name == 'NCS_UMN_Test'}">
-	                                	<sec:ifAnyGranted roles="ROLE_LIST_TESTER">
+	                                	<sec:ifAnyGranted roles="ROLE_NCS_LIST_TESTER">
 	                                            <li>
 	                                                <a href="#" onClick="return toggleListMembers('${l.name}');" title="Show Members">${l.preferredName}</a>
 	                                                (<g:link action="show" id="${l.name}" title="View Details">List Details</g:link>)

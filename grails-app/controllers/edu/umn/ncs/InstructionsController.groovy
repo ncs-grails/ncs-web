@@ -2,7 +2,7 @@ package edu.umn.ncs
 
 import grails.plugins.springsecurity.Secured
 
-@Secured(['ROLE_LIST_VIEWER'])
+@Secured(['ROLE_NCS_LIST_VIEWER'])
 class InstructionsController {
 
     def index = { redirect(controller:"info") }

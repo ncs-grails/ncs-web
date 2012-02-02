@@ -19,13 +19,13 @@
 </div>
  
 	<div class="content-box">
-		<sec:ifAnyGranted roles="ROLE_LIST_VIEWER">
+		<sec:ifAnyGranted roles="ROLE_NCS_LIST_VIEWER">
 	 	<div class="useful-link">
 	 		<p><g:link controller="manageLists" action="list">NCS Email Lists</g:link></p>
 	 	</div>
 		</sec:ifAnyGranted>
 		
-		<sec:ifAnyGranted roles="ROLE_NCS">
+		<sec:ifAnyGranted roles="ROLE_NCS_NCS">
 		 	<div class="useful-link">
 		 		<p><a href="https://secure.ncs.umn.edu/ncs-case-management">Case Management</a></p>
 		 	</div>

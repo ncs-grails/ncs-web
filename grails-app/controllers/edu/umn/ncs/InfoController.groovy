@@ -2,7 +2,7 @@ package edu.umn.ncs
 
 import grails.plugins.springsecurity.Secured
 
-@Secured(['ROLE_ALL'])
+@Secured(['ROLE_NCS_ALL'])
 class InfoController {
 	
 	def springSecurityService
@@ -14,7 +14,7 @@ class InfoController {
 		
 		def rolesList = ""
 		roles.each {
-			rolesList += "${it}".replace("ROLE_", "") + ", "
+			rolesList += "${it}".replace("ROLE_NCS_", "") + ", "
 		}
 		
 		[ roles: roles, rolesList: rolesList ]
