@@ -73,7 +73,6 @@ class ManageListsController {
 	}
 
 	// this will export all members of a list in CSV format
-	
 	def exportCsv = {
 		
 		def mailingListInstance = mailingListService.getList(params.id)
