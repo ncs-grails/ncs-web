@@ -17,9 +17,7 @@ class ManageListsController {
 	def list = {
 		def mailingListInstanceList = mailingListService.getLists()
 		
-		if (debug) {
-			println " mailingListInstanceList.allowLyris: ${mailingListInstanceList.allowLyris}"
-		}
+		
 		
 		/*def mailingListAuthorityInstanceList = []
 		def mailingListAuthorityInstance = null
@@ -75,7 +73,7 @@ class ManageListsController {
 	}
 
 	// this will export all members of a list in CSV format
-	@Secured(['ROLE_NCS_LYRIS',"ROLE_NCS_IT"])
+	
 	def exportCsv = {
 		
 		def mailingListInstance = mailingListService.getList(params.id)

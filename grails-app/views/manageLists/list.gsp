@@ -37,38 +37,26 @@
                                                 <g:link action="findMember" >Members Search</g:link>
                                         </span>
                                 </g:if>
-                                <g:if test="${l.allowLyris}"> 
-										<sec:ifAnyGranted roles="ROLE_NCS_LYRIS">
-				                    		<li>
-					                    		<a href="#" onClick="return toggleListMembers('${l.name}');" title="Show Members">${l.preferredName}</a>
-						                    	(<g:link action="show" id="${l.name}" title="View Details">List Details</g:link>)
-						                    	(<g:link action="exportCsv" id="${l.name}" title="Export to CSV">Export</g:link>)
-						                    	(<a style="font-size:0.9em;" href="mailto:${l.email}">Email This List</a>)
-					                    		<div id="${l.name}-members" style="display:none;"></div>
-				                    		</li>
-										</sec:ifAnyGranted>
-			                	</g:if>
-                                <g:else>
-			              			<g:if test="${l.name == 'NCS_UMN_Test'}">
-	                                	<sec:ifAnyGranted roles="ROLE_NCS_LIST_TESTER">
-	                                            <li>
-	                                                <a href="#" onClick="return toggleListMembers('${l.name}');" title="Show Members">${l.preferredName}</a>
-	                                                (<g:link action="show" id="${l.name}" title="View Details">List Details</g:link>)
-	                                                (<a style="font-size:0.9em;" href="mailto:${l.email}">Email This List</a>)
-	                                                <div id="${l.name}-members" style="display:none;"></div>
-	                                                
-	                                            </li>
-	                                    </sec:ifAnyGranted>
-	                                </g:if>
+                                <g:if test="${l.name == 'NCS_UMN_Test'}">
+                                	<sec:ifAnyGranted roles="ROLE_NCS_LIST_TESTER">
+                                            <li>
+                                                <a href="#" onClick="return toggleListMembers('${l.name}');" title="Show Members">${l.preferredName}</a>
+                                                (<g:link action="show" id="${l.name}" title="View Details">List Details</g:link>)
+                                                (<a style="font-size:0.9em;" href="mailto:${l.email}">Email This List</a>)
+                                                <div id="${l.name}-members" style="display:none;"></div>
+                                                
+                                            </li>
+                                    </sec:ifAnyGranted>
+                                </g:if>
 	                                <g:else>
 				                    	<li>
 					                    	<a href="#" onClick="return toggleListMembers('${l.name}');" title="Show Members">${l.preferredName}</a>
 					                    	(<g:link action="show" id="${l.name}" title="View Details">List Details</g:link>)
+					                    	(<g:link action="exportCsv" id="${l.name}" title="Export to CSV">Export</g:link>)
 					                    	(<a style="font-size:0.9em;" href="mailto:${l.email}">Email This List</a>)
 				                    		<div id="${l.name}-members" style="display:none;"></div>
 				                    	</li>
 			               		</g:else>
-	                    	</g:else>
                         </g:each>
                     </ul>
                 </div>
