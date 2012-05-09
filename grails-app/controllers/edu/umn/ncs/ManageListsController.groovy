@@ -76,7 +76,7 @@ class ManageListsController {
 	def exportCsv = {
 		
 		def mailingListInstance = mailingListService.getList(params.id)
-		def mailingListAuthorityInstance = MailingListAuthority.findByListName(mailingListInstance.name)
+		//def mailingListAuthorityInstance = MailingListAuthority.findByListName(mailingListInstance.name)
 		
 		if (debug) {
 			println "mailingListInstance: ${mailingListInstance}" 
