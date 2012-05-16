@@ -18,7 +18,8 @@ grails.config.locations = [
 	6. Manage roles
 */
 
-grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
+// change this to alter the default package name and Maven publishing destination
+grails.project.groupId = 'edu.umn.ncs' 
 grails.mime.file.extensions = true // enables the parsing of file extensions from URLs into the request format
 grails.mime.use.accept.header = false
 grails.mime.types = [ html: ['text/html','application/xhtml+xml'],
@@ -32,8 +33,8 @@ grails.mime.types = [ html: ['text/html','application/xhtml+xml'],
                       all: '*/*',
                       json: ['application/json','text/json'],
                       form: 'application/x-www-form-urlencoded',
-                      multipartForm: 'multipart/form-data'
-                    ]
+                      multipartForm: 'multipart/form-data' ]
+
 // The default codec used to encode data with ${}
 grails.views.default.codec = "none" // none, html, base64
 grails.views.gsp.encoding = "UTF-8"
@@ -43,17 +44,30 @@ grails.views.gsp.sitemesh.preprocess = true
 // scaffolding templates configuration
 grails.scaffolding.templates.domainSuffix = 'Instance'
 
-// Set to false to use the new Grails 1.2 JSONBuilder in the render method
-grails.json.legacy.builder = false
 // enabled native2ascii conversion of i18n properties files
 grails.enable.native2ascii = true
 // whether to install the java.util.logging bridge for sl4j. Disable for AppEngine!
 grails.logging.jul.usebridge = true
 // packages to include in Spring bean scanning
 grails.spring.bean.packages = []
-// jQuery
-grails.views.javascript.library="jquery"
 
+// Spring Cache (makes lookup FAST!)
+springcache {
+    defaults {
+        // set default cache properties that will apply to all caches that do not override them
+        eternal = false
+        diskPersistent = false
+    }
+    caches {
+        lookupCache {
+            // set any properties unique to this cache
+            memoryStoreEvictionPolicy = "LRU"
+        }
+    }
+}
+
+// jQuery everywhere!
+grails.views.javascript.library="jquery"
 
 // Added by the Joda-Time plugin:
 grails.gorm.default.mapping = {
@@ -66,3 +80,8 @@ grails.gorm.default.mapping = {
 	"user-type" type: org.joda.time.contrib.hibernate.PersistentLocalDateTime, class: org.joda.time.LocalDateTime
 	"user-type" type: org.joda.time.contrib.hibernate.PersistentPeriod, class: org.joda.time.Period
 }
+
+// Added by the Address Lookup ZP4 Plugin:
+//grails.plugins.addressLookupZpfour.server = 'http://zp4.intranet.example.com/'
+
+

@@ -17,11 +17,10 @@ class ManageListsController {
 	def list = {
 		def mailingListInstanceList = mailingListService.getLists()
 		
-		
-		
-		/*def mailingListAuthorityInstanceList = []
+		def mailingListAuthorityInstanceList = []
 		def mailingListAuthorityInstance = null
 		
+		/*
 		mailingListInstanceList.each {
 			mailingListAuthorityInstance = MailingListAuthority.findByListName(it.preferredName)
 			if (mailingListAuthorityInstance?.allowLyris) {
@@ -39,7 +38,7 @@ class ManageListsController {
 	
 		[ mailingListInstanceList: mailingListInstanceList.sort{it.preferredName}
 			, breadCrumb: breadCrumb
-			/*, mailingListAuthorityInstanceList: mailingListAuthorityInstanceList*/ ]
+			, mailingListAuthorityInstanceList: mailingListAuthorityInstanceList ]
 	}
 
 	def show = {
