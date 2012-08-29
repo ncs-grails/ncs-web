@@ -32,10 +32,10 @@ grails.project.dependency.resolution = {
 		compile ":hibernate:$grailsVersion"
 		compile ":tomcat:$grailsVersion"
 
-		compile ":spring-security-core:1.2.7.3"
+		compile ":spring-security-core:1.2.7.10"
 		compile ":spring-security-ldap:1.0.6"
 		compile ":spring-security-shibboleth-native-sp:1.0.3"
-		provided ":spring-security-mock:1.0.1"
+		compile ":spring-security-mock:1.0.1"
 		
 		test ":code-coverage:1.2.5"
 		test ":codenarc:0.16.1"

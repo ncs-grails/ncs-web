@@ -51,21 +51,6 @@ grails.logging.jul.usebridge = true
 // packages to include in Spring bean scanning
 grails.spring.bean.packages = []
 
-// Spring Cache (makes lookup FAST!)
-springcache {
-    defaults {
-        // set default cache properties that will apply to all caches that do not override them
-        eternal = false
-        diskPersistent = false
-    }
-    caches {
-        lookupCache {
-            // set any properties unique to this cache
-            memoryStoreEvictionPolicy = "LRU"
-        }
-    }
-}
-
 // jQuery everywhere!
 grails.views.javascript.library="jquery"
 
@@ -80,8 +65,3 @@ grails.gorm.default.mapping = {
 	"user-type" type: org.joda.time.contrib.hibernate.PersistentLocalDateTime, class: org.joda.time.LocalDateTime
 	"user-type" type: org.joda.time.contrib.hibernate.PersistentPeriod, class: org.joda.time.Period
 }
-
-// Added by the Address Lookup ZP4 Plugin:
-//grails.plugins.addressLookupZpfour.server = 'http://zp4.intranet.example.com/'
-
-
