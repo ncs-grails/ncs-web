@@ -17,7 +17,7 @@
 <div class="content-box">
 	<h2>Learn more about the National Children's Study at</h2>
 	<div style="display:inline-block; text-align:center; width:288px;">
-		<a href="http://nationalchildrensstudy.gov/">
+		<a href="https://www.nationalchildrensstudy.gov/">
 		<img src="${resource(dir:'images', file:'ncs_logo_145.png')}"><br/>
 	National Institute of Health</a>
 	</div>

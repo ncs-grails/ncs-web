@@ -58,40 +58,7 @@
 	<li class="tl_menu"><a
 		href="https://www.ncsportal.org/"
 		title="NCS Secure Access Gateway">NCS Portal</a></li>
-	<li class="tl_menu">|</li>
-	<li class="tl_menu"><a href="#">Quick Links</a>
-	<div id="nav_cat3" class="dd_menu_top">
-	<ul class="dd_menu">
-		<li class="first"><a href="http://hilo.lau-schumann.com/"
-			title="NCS Hi/Lo Collaborative Improvement Network">COIN</a></li>
-		<li><a href="http://www.sph.umn.edu/enhs/research/ncs/"
-			title="The National Childrens Study Speakers' Series Ramsey County Location">Speakers'
-		Series</a></li>
-		<li><a
-			href="https://www.ncsportal.org/"
-			title="NCS Secure Access Gateway">NCS Portal</a></li>
-		<li><a href="http://RamseyKids.nationalchildrensstudy.gov/"
-			title="National Institute of Child Health and Human Development">NCS at NICHD</a></li>
-		<li><a href="http://enhs.umn.edu/"
-			title="Environmental Health Sciences">EnHS</a></li>
-		<li><a href="http://www.sph.umn.edu/"
-			title="School of Public Health">SPH</a></li>
-		<li class="last"><a href="http://www.umn.edu/"
-			title="University of Minnesota">UMN</a></li>
-	</ul>
-	</div>
-	</li>
-
-
-	<li class="tl_menu">|</li>
 	<li class="tl_menu">
-	<sec:ifLoggedIn>
-		<g:link controller="logout">Logout</g:link>
-	</sec:ifLoggedIn> <sec:ifNotLoggedIn>
-		<g:link controller="info">Login</g:link>
-	</sec:ifNotLoggedIn>
-	</li>
-
 </ul>
 
 <br class="clearabove">
