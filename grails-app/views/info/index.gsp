@@ -4,7 +4,7 @@
 <meta name="layout" content="ncs" />
 </head>
 <body>
-<h1>Ramsey County National Children's Study</h1>
+<h1> National Children's Study</h1>
 
 <div id="identity">
 	<sec:ifLoggedIn>
